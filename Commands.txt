@@ -1,0 +1,115 @@
+CREATE DATABASE Airport_DB;
+
+SHOW DATABASES;
+
+USE Airport_DB;
+
+CREATE TABLE Airport (
+    AirportID INT,
+    Name VARCHAR(200),
+    Location VARCHAR(200),
+    Terminals INT,
+    PRIMARY KEY (AirportID)
+);
+
+CREATE TABLE Airline (
+    AirlineID INT,
+    Name VARCHAR(200),
+    Code VARCHAR(5),
+    PRIMARY KEY (AirlineID)
+);
+
+CREATE TABLE Passenger (
+    PassengerID INT,
+    Name VARCHAR(200),
+    DOB DATE,
+    PhoneNumber BIGINT,
+    PRIMARY KEY (PassengerID)
+);
+
+CREATE TABLE Staff (
+    StaffID INT,
+    AirportID INT,
+    Name VARCHAR(200),
+    PRIMARY KEY (StaffID),
+    FOREIGN KEY (AirportID) REFERENCES Airport(AirportID)
+);
+
+CREATE TABLE Gate (
+    GateID INT,
+    AirportID INT,
+    Status VARCHAR(50),
+    Terminal INT,
+    PRIMARY KEY (GateID),
+    FOREIGN KEY (AirportID) REFERENCES Airport(AirportID)
+);
+
+CREATE TABLE Baggage (
+    PassengerID INT,
+    BaggageTag VARCHAR(200),
+    Weight DOUBLE(5,2),
+    DepartureAirport VARCHAR(200),
+    ArrivalAirport VARCHAR(200),
+    PRIMARY KEY (PassengerID, BaggageTag),
+    FOREIGN KEY (PassengerID) REFERENCES Passenger(PassengerID)
+);
+
+CREATE TABLE LostAndFound (
+    ItemID INT,
+    AirportID INT,
+    DateFound DATE,
+    Description LONGTEXT,
+    PRIMARY KEY (ItemID),
+    FOREIGN KEY (AirportID) REFERENCES Airport(AirportID)
+);
+
+CREATE TABLE Flight (
+    FlightID INT,
+    AirlineID INT,
+    DepartureAirportID INT,
+    ArrivalAirportID INT,
+    DepartureTime DATETIME,
+    ArrivalTime DATETIME,
+    PRIMARY KEY (FlightID),
+    FOREIGN KEY (AirlineID) REFERENCES Airline(AirlineID),
+    FOREIGN KEY (DepartureAirportID) REFERENCES Airport(AirportID),
+    FOREIGN KEY (ArrivalAirportID) REFERENCES Airport(AirportID)
+);
+
+CREATE TABLE Works_For (
+    StaffID INT,
+    AirportID INT,
+    PRIMARY KEY (StaffID, AirportID),
+    FOREIGN KEY (StaffID) REFERENCES Staff(StaffID),
+    FOREIGN KEY (AirportID) REFERENCES Airport(AirportID)
+);
+
+CREATE TABLE Flight_Passenger (
+    FlightID INT,
+    PassengerID INT,
+    PRIMARY KEY (FlightID, PassengerID),
+    FOREIGN KEY (FlightID) REFERENCES Flight(FlightID),
+    FOREIGN KEY (PassengerID) REFERENCES Passenger(PassengerID)
+);
+
+CREATE TABLE Airport_Airline (
+    AirportID INT,
+    AirlineID INT,
+    FOREIGN KEY (AirportID) REFERENCES Airport(AirportID),
+    FOREIGN KEY (AirlineID) REFERENCES Airline(AirlineID)
+);
+
+CREATE TABLE Staff_Role (
+    StaffID INT,
+    Role VARCHAR(200),
+    PRIMARY KEY (StaffID, Role),
+    FOREIGN KEY (StaffID) REFERENCES Staff(StaffID)
+);
+
+CREATE TABLE Flight_Gate (
+    FlightID INT,
+    GateID INT,
+    PRIMARY KEY (FlightID, GateID),
+    FOREIGN KEY (FlightID) REFERENCES Flight(FlightID),
+    FOREIGN KEY (GateID) REFERENCES Gate(GateID)
+);
