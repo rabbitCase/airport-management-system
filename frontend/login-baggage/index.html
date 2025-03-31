@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Login</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<div id="main-container">
+			<div id="background-container">
+				<label id="credits"
+					>Photo by
+					<a
+						href="https://unsplash.com/@klalive?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
+						>Jue Huang</a
+					>
+					on
+					<a
+						href="https://unsplash.com/photos/people-walking-inside-airport-station-qUfecpBw5b8?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
+						>Unsplash</a
+					>
+				</label>
+			</div>
+
+			<div id="form-container">
+				<form action="#">
+					<div id="info-container">
+						<label for="info-text" id="info-text">
+							Staff Management portal<br />Check-in Baggage</label
+						>
+					</div>
+					<div id="input-container">
+						<label id="comment">Enter baggage details</label>
+
+						<div class="container-group" id="name-container">
+							<div class="input-fields" id="firstname-container">
+								<label for="firstname" id="first-name">Passenger ID</label>
+								<input
+									type="text"
+									name="firstname"
+									id="firstname"
+									placeholder="12345Ex"
+									required />
+							</div>
+
+							<div class="input-fields" id="lastname-container">
+								<label for="lastname" id="last-name">Baggage Tag</label>
+								<input
+									type="text"
+									name="lastname"
+									id="lastname"
+									placeholder="#21"
+									required />
+							</div>
+						</div>
+
+						<div class="container-group" id="contact-container">
+							<div class="input-fields" id="email-container">
+								<label for="email" id="emailid">Weight</label>
+								<input
+									type="text"
+									name="email"
+									id="email"
+									placeholder="25Kgs"
+									required />
+							</div>
+
+							<div class="input-fields" id="phone-container"></div>
+						</div>
+
+						<div class="container-group" id="password-validation-container">
+							<div class="input-fields" id="pass-container">
+								<label for="pass" id="password">Departure Airport</label>
+								<input
+									type="text"
+									name="pass"
+									id="pass"
+									placeholder="IMX"
+									required />
+							</div>
+
+							<div class="input-fields" id="cpass-container">
+								<label for="cpass" id="confirm-pass">Arrival Airport</label>
+								<input
+									type="text"
+									name="cpass"
+									id="cpass"
+									placeholder="IGL"
+									required />
+							</div>
+						</div>
+					</div>
+					<div id="button-container">
+						<button type="submit" id="submit-button">Check-in</button>
+
+						<label
+							>Facing issues?
+							<a href="" id="specialhref"><u>helpline</u></a></label
+						>
+					</div>
+				</form>
+			</div>
+		</div>
+	</body>
+</html>
