@@ -113,3 +113,6 @@ CREATE TABLE Flight_Gate (
     FOREIGN KEY (FlightID) REFERENCES Flight(FlightID),
     FOREIGN KEY (GateID) REFERENCES Gate(GateID)
 );
+
+ Alter Table Flight
+ ADD COLUMN Delay INT;
