@@ -70,6 +70,7 @@ CREATE TABLE Flight (
     ArrivalAirportID INT,
     DepartureTime DATETIME,
     ArrivalTime DATETIME,
+    Delay INT,
     PRIMARY KEY (FlightID),
     FOREIGN KEY (AirlineID) REFERENCES Airline(AirlineID),
     FOREIGN KEY (DepartureAirportID) REFERENCES Airport(AirportID),
