@@ -162,6 +162,8 @@ textarea:invalid {
     resize: both;
     overflow: auto;
     border-radius: 5px;
+    width: 500px;
+    height: 100px;
 }
 #area{
     margin-bottom: 10px;
