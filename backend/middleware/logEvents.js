@@ -6,7 +6,7 @@ const path = require("path");
 
 const logEvents = async (message, fileName) => {
 	const dateTime = `${format(new Date(), "yyyyMMdd\tHH:mm:ss")}`;
-	const logItem = `${dateTime}\t${uuid()}\t${message}`;
+	const logItem = `${dateTime}\t${uuid()}\t${message}\n`;
 	console.log(logItem);
 	try {
 		await fsPromises.appendFile(
