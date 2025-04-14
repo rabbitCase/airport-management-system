@@ -6,6 +6,7 @@ body{
     background-color: rgb(21, 21, 21);
     font-family: 'Open Sans','ariel';
 }
+
 a{
     text-decoration: none;
     color: white;
@@ -25,12 +26,22 @@ h2{
     color: transparent;
     background-clip: text;
     text-shadow: 0 0 1px rgba(230, 9, 255, 0.705);
+    filter: blur(10px);
+    transition: filter 0.5s ease-in-out, transform 0.5s ease;;
+}
+#redirect{
+    display: flex;
+    height: 200px;
+}
+#redirect h2{
+    margin-left: 200px;
 }
 #plane{
-    position: absolute;
-    overflow: hidden;
     height : 310px;
     width: 300px;
+    left: 30px;
+    right: 0px;
+    top : 300px;
     bottom : 80px;
 }
 #plane img{
@@ -56,12 +67,14 @@ h2{
     border: 2px solid rgb(176, 11, 242);
     box-shadow: 0 0 8px 1px rgb(136, 1, 163);
     border-radius: 15px;
+    height: 50px;
     width: fit-content;
+    filter: blur(10px);
     cursor: pointer;
     font-family: 'Faustina','ariel';
     color: white;
     background-color: transparent;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, filter 0.5s ease-in-out;
 }
 #button:hover{
     background-color: rgb(157, 0, 255);
