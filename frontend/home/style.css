@@ -27,7 +27,7 @@ h2{
     background-clip: text;
     text-shadow: 0 0 1px rgba(230, 9, 255, 0.705);
     filter: blur(10px);
-    transition: filter 0.5s ease-in-out, transform 0.5s ease;;
+    transition: filter 0.9s ease-in-out, transform 0.5s ease;;
 }
 #redirect{
     display: flex;
@@ -74,7 +74,7 @@ h2{
     font-family: 'Faustina','ariel';
     color: white;
     background-color: transparent;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease, filter 0.5s ease-in-out;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, filter 0.9s ease-in-out;
 }
 #button:hover{
     background-color: rgb(157, 0, 255);
