@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Faustina:ital,wght@0,300..800;1,300..800&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Faustina:ital,wght@0,300..800;1,300..800&display=swap');
+body{
+    margin: 0;
+    text-align: center;
+    background-color: rgb(21, 21, 21);
+    font-family: 'Open Sans','ariel';
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+h1{
+    margin-top: 150px;
+    margin-bottom: 20px;
+    font-size: 100px;
+}
+h2{
+    margin: 0;
+    font-size: 70px;
+    margin-bottom: 100px;
+}
+#headers{
+    background-image: linear-gradient(rgb(255, 11, 255),rgb(129, 9, 129),rgb(35, 34, 34),rgb(35, 34, 34));
+    color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 1px rgba(230, 9, 255, 0.705);
+}
+#plane{
+    position: absolute;
+    overflow: hidden;
+    height : 400px;
+    width: 400px;
+    bottom : -20px;
+}
+#plane img{
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+#main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 5px;
+    border: 2px solid rgb(176, 11, 242);
+    box-shadow: 0 0 8px 1px rgb(136, 1, 163);
+    border-radius: 15px;
+    width: fit-content;
+    cursor: pointer;
+    font-family: 'Faustina','ariel';
+    color: white;
+    background-color: transparent;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+#button:hover{
+    background-color: rgb(157, 0, 255);
+    box-shadow: 0 0 20px 5px rgb(151, 0, 252);
+}
+#button svg{
+    filter: invert(1);
+    height: 30px;
+    margin-left: 2px;
+    margin-top: 8px;
+}

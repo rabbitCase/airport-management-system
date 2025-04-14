@@ -4,17 +4,18 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Delay Update</title>
-		<link rel="stylesheet" href="./login-delay/style.css" />
+		<link rel="stylesheet" href="./style.css" />
+		<script src="./main.js" defer></script>
 	</head>
 	<body>
 		<div id="form-container">
 			<div id="main">
 				<h1><i>Staff Management Portal</i></h1>
 				<h2>Update flight delays</h2>
-				<form action="#">
+				
 					<div id="delay-container">
 						<div class="input-container">
-							<label for="flightid" class="label">Flight ID</label>
+							<label class="label">Flight ID</label>
 							<input
 								type="text"
 								placeholder="IE2653"
@@ -22,17 +23,17 @@
 								required />
 						</div>
 						<div class="input-container">
-							<label for="delay" class="label"
+							<label class="label"
 								>Delay <br />
-								(in minutes)</label
-							>
+								(in minutes)
+							</label>
 							<input type="text" placeholder="25" id="delay-input" required />
 						</div>
 					</div>
 					<div id="button-container">
-						<button type="submit">Update</button>
+						<button id="send-button">Update</button>
 					</div>
-				</form>
+				
 			</div>
 			<div id="credits">
 				Photo by

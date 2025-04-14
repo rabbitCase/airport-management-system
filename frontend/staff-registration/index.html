@@ -4,12 +4,13 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="./style.css" />
+		<script src="main.js" defer></script>
 		<title>Staff Registration</title>
 	</head>
 	<body class="staff-login">
 		<div class="login-box">
 			<h2>Staff Registration</h2>
-			<form action="./staffdashboard.html" method="get">
+			<form>
 				<p>
 					<input
 						type="text"
@@ -35,7 +36,8 @@
 						required />
 				</p>
 				<div class="button-container">
-					<button type="submit">Submit</button>
+					<a href="http://localhost:3000/login/" target="_blank" style="font-size: 15px ;">Login instead</a>
+					<button id="submit-button">Submit</button>
 				</div>
 			</form>
 		</div>

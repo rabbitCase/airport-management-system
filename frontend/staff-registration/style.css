@@ -41,7 +41,7 @@ html {
 
 .button-container {
 	display: flex;
-	justify-content: right;
+	justify-content: space-between;
 }
 
 .login-box button {
