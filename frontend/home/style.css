@@ -29,9 +29,9 @@ h2{
 #plane{
     position: absolute;
     overflow: hidden;
-    height : 400px;
-    width: 400px;
-    bottom : -20px;
+    height : 310px;
+    width: 300px;
+    bottom : 80px;
 }
 #plane img{
     display: block;

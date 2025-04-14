@@ -35,6 +35,7 @@ app.use('/login',staffloginrouter);
 app.use('/logged-in',loggedinrouter);
 
 app.get('/', (req, res) => {
+    app.use(express.static(path.join(__dirname,"../frontend/home")));
     res.sendFile(path.join(__dirname,"../frontend/home/index.html"));
 });
 
