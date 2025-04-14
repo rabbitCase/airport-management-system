@@ -22,6 +22,7 @@ const dbConnection = sql.createConnection({
     connectionLimit: 20
 });
 
+app.use(express.text())
 app.use(express.json());
 app.use(cors());
 
@@ -50,11 +51,16 @@ app.get('/', (req, res) => {
     });
 });
 
-app.use(express.text())
+app.post('/welcome', (req,res) =>{
+    console.log(req.body);
+    res.json({status : "received", data : req.body});
+});
+
+
 app.post('/', (req,res) => {
     console.log(req.body);
     res.send("Hello from server!");
-})
+});
 
 app.post('/delay', (req,res) => {
     let flightid = req.body.flightid;
