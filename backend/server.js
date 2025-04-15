@@ -18,7 +18,7 @@ const dbConnection = sql.createConnection({
     host: "localhost",
     user: "root",
     password: process.env.DB_PASSWORD,
-    database: "mit",
+    database: "airport_db",
     connectionLimit: 20
 });
 
@@ -40,14 +40,19 @@ app.get('/', (req, res) => {
 });
 
 app.post('/welcome', (req,res) =>{
-    console.log(req.body);
-    res.json({status : "received", data : req.body});
+    let query = `select AirlineID, DepartureAirportID, ArrivalAirportID, TIME(DepartureTime) as DepartureTime from flight where DepartureAirportID = ${req.body.depairport} and ArrivalAirportID = ${req.body.arrairport} and DATE(DepartureTime) = '${req.body.tripdate}'`;
+    dbConnection.query(query, (err,result) => {
+        if(err){
+            console.log("Error occured: ", err);
+        }
+        res.json(result);
+    });
 });
 
 app.post('/delay', (req,res) => {
     let flightid = req.body.flightid;
     let delay = req.body.delay;
-    const query = ``;
+    const query = `update flight set delay = ${delay} where FlightID = ${flightid}`;
     dbConnection.query(query, (err,result) =>{
         if (err) {
             console.log("Query error:", err);

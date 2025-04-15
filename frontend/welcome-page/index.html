@@ -9,7 +9,7 @@
 </head>
 <body>
     <div id="header-container">
-        <h1>Welcome to airport</h1>
+        <h1>Explore Your Journey</h1>
         <button>
             <a href="http://localhost:3000/login/" target="_blank">Staff login</a>
         </button>
@@ -18,7 +18,7 @@
     <div id="tracker-container">
         <div id="info-container">
             <div>
-                <span style="font-size: 70px;">Find the right Flight for you</span> <br> <span style="font-size: 55px;">Check Flight availability</span>
+                <span style="font-size: 70px;">Find the Right Flight for you</span> <br> <span style="font-size: 55px;">Check Flight availability</span>
             </div>
             <button id="tracker-button"> Track Flights</button>
         </div>
@@ -27,15 +27,27 @@
             <div id="tracker-fields">
                 <div class="tracker-input">
                     <label for="">Flying from</label>
-                    <input type="text">
+                    <select id="flying-from">
+                        <option value="mumbai">Mumbai</option>
+                        <option value="delhi">Delhi</option>
+                        <option value="bengaluru">Bengaluru</option>
+                        <option value="kolkata">Kolkata</option>
+                        <option value="kolkata">Hyderabad</option>
+                    </select>
                 </div>
                 <div class="tracker-input">
                     <label for="">Flying to</label>
-                    <input type="text">
+                    <select id="flying-to">
+                        <option value="mumbai">Mumbai</option>
+                        <option value="delhi">Delhi</option>
+                        <option value="bengaluru">Bengaluru</option>
+                        <option value="kolkata">Kolkata</option>
+                        <option value="kolkata">Hyderabad</option>
+                    </select>
                 </div>
                 <div class="tracker-input">
                     <label for="">Trip Date</label>
-                    <input type="date">
+                    <input type="date" id="trip-date">
                 </div>
             </div>
             <div>
@@ -43,6 +55,8 @@
             </div>
         </div>
     </div>
-    
+    <div id="results">
+
+    </div>
 </body>
 </html>
