@@ -20,7 +20,12 @@ button.addEventListener('click', async () =>{
             })
         });
         const response = await request.json();
-        console.log(response);
+        if(response.message == "query executed"){
+            alert("Delay updated. Check Database");
+        }
+        else{
+            alert("Error updating delay. Try again");
+        }
     } catch (error) {
         console.log(error);
     }
