@@ -114,3 +114,296 @@ CREATE TABLE Flight_Gate (
     FOREIGN KEY (FlightID) REFERENCES Flight(FlightID),
     FOREIGN KEY (GateID) REFERENCES Gate(GateID)
 );
+
+-- USED AI for sample DATA
+
+INSERT INTO Airport (AirportID, Name, Location, Terminals) VALUES
+(1, 'Chhatrapati Shivaji Maharaj International Airport', 'Mumbai, Maharashtra', 2),
+(2, 'Indira Gandhi International Airport', 'Delhi, Delhi', 3),
+(3, 'Kempegowda International Airport', 'Bengaluru, Karnataka', 1),
+(4, 'Netaji Subhas Chandra Bose International Airport', 'Kolkata, West Bengal', 2),
+(5, 'Rajiv Gandhi International Airport', 'Hyderabad, Telangana', 1);
+
+INSERT INTO Airline (AirlineID, Name, Code) VALUES
+(1, 'Air India', 'AI'),
+(2, 'IndiGo', '6E'),
+(3, 'SpiceJet', 'SG'),
+(4, 'Vistara', 'UK'),
+(5, 'GoAir', 'G8');
+
+INSERT INTO Passenger (PassengerID, Name, DOB, PhoneNumber) VALUES
+(1, 'Rahul Sharma', '1990-05-15', 9876543210),
+(2, 'Priya Patel', '1985-08-22', 8765432109),
+(3, 'Amit Kumar', '1995-03-10', 7654321098),
+(4, 'Sneha Gupta', '1988-11-30', 6543210987),
+(5, 'Vikram Singh', '1992-07-25', 5432109876);
+
+INSERT INTO Staff (StaffID, AirportID, Name) VALUES
+(1, 1, 'Suresh Yadav'),
+(2, 2, 'Anjali Mehra'),
+(3, 3, 'Rakesh Nair'),
+(4, 4, 'Pooja Desai'),
+(5, 5, 'Kiran Reddy');
+
+INSERT INTO Gate (GateID, AirportID, Status, Terminal) VALUES
+(1, 1, 'Available', 1),
+(2, 2, 'Occupied', 2),
+(3, 3, 'Available', 1),
+(4, 4, 'Under Maintenance', 1),
+(5, 5, 'Available', 1);
+
+INSERT INTO Baggage (PassengerID, BaggageTag, Weight, DepartureAirport, ArrivalAirport) VALUES
+(1, 'BAG001', 20.50, 'Mumbai, Maharashtra', 'Delhi, Delhi'),
+(2, 'BAG002', 15.75, 'Delhi, Delhi', 'Bengaluru, Karnataka'),
+(3, 'BAG003', 22.00, 'Bengaluru, Karnataka', 'Kolkata, West Bengal'),
+(4, 'BAG004', 18.25, 'Kolkata, West Bengal', 'Hyderabad, Telangana'),
+(5, 'BAG005', 19.80, 'Hyderabad, Telangana', 'Mumbai, Maharashtra');
+
+INSERT INTO LostAndFound (ItemID, AirportID, DateFound, Description) VALUES
+(1, 1, '2025-04-01', 'Black leather wallet with ID cards'),
+(2, 2, '2025-04-02', 'Blue backpack with laptop'),
+(3, 3, '2025-04-03', 'Silver watch with leather strap'),
+(4, 4, '2025-04-04', 'Red suitcase with clothes'),
+(5, 5, '2025-04-05', 'Pair of glasses in black case');
+
+INSERT INTO Works_For (StaffID, AirportID) VALUES
+(1, 1),
+(2, 2),
+(3, 3),
+(4, 4),
+(5, 5);
+
+INSERT INTO Flight_Passenger (FlightID, PassengerID) VALUES
+(1, 1),
+(2, 2),
+(3, 3),
+(4, 4),
+(5, 5);
+
+INSERT INTO Airport_Airline (AirportID, AirlineID) VALUES
+(1, 1),
+(2, 2),
+(3, 3),
+(4, 4),
+(5, 5);
+
+INSERT INTO Staff_Role (StaffID, Role) VALUES
+(1, 'Security Officer'),
+(2, 'Check-in Staff'),
+(3, 'Ground Crew'),
+(4, 'Customer Service'),
+(5, 'Baggage Handler');
+
+INSERT INTO Flight_Gate (FlightID, GateID) VALUES
+(1, 1),
+(2, 2),
+(3, 3),
+(4, 4),
+(5, 5);
+
+
+INSERT INTO Flight (FlightID, AirlineID, DepartureAirportID, ArrivalAirportID, DepartureTime, ArrivalTime, Delay) VALUES
+(1, 1, 1, 2, '2025-04-13 08:00:00', '2025-04-13 10:30:00', 0),    -- Air India: Mumbai→Delhi
+(2, 2, 2, 3, '2025-04-13 11:00:00', '2025-04-13 13:15:00', 10),   -- IndiGo: Delhi→Bengaluru
+(3, 3, 3, 4, '2025-04-13 14:00:00', '2025-04-13 16:45:00', 5),    -- SpiceJet: Bengaluru→Kolkata
+(4, 4, 4, 5, '2025-04-13 17:00:00', '2025-04-13 19:30:00', 0),    -- Vistara: Kolkata→Hyderabad
+(5, 5, 5, 1, '2025-04-13 20:00:00', '2025-04-13 22:45:00', 15),   -- GoAir: Hyderabad→Mumbai
+(6, 2, 1, 3, '2025-04-14 06:00:00', '2025-04-14 08:45:00', 0),    -- IndiGo: Mumbai→Bengaluru
+(7, 4, 2, 4, '2025-04-14 07:30:00', '2025-04-14 10:00:00', 10),   -- Vistara: Delhi→Kolkata
+(8, 1, 3, 5, '2025-04-14 09:00:00', '2025-04-14 10:30:00', 5),    -- Air India: Bengaluru→Hyderabad
+(9, 3, 4, 1, '2025-04-14 10:15:00', '2025-04-14 12:45:00', 0),    -- SpiceJet: Kolkata→Mumbai
+(10, 5, 5, 2, '2025-04-14 11:00:00', '2025-04-14 13:30:00', 15),  -- GoAir: Hyderabad→Delhi
+(11, 1, 1, 4, '2025-04-14 12:30:00', '2025-04-14 15:00:00', 0),   -- Air India: Mumbai→Kolkata
+(12, 2, 2, 5, '2025-04-14 13:45:00', '2025-04-14 16:15:00', 20),  -- IndiGo: Delhi→Hyderabad
+(13, 4, 3, 1, '2025-04-14 15:00:00', '2025-04-14 17:45:00', 0),   -- Vistara: Bengaluru→Mumbai
+(14, 3, 4, 2, '2025-04-14 16:30:00', '2025-04-14 19:00:00', 5),   -- SpiceJet: Kolkata→Delhi
+(15, 5, 5, 3, '2025-04-14 17:15:00', '2025-04-14 19:45:00', 0),   -- GoAir: Hyderabad→Bengaluru
+(16, 1, 2, 1, '2025-04-14 18:00:00', '2025-04-14 20:30:00', 10),  -- Air India: Delhi→Mumbai
+(17, 2, 3, 4, '2025-04-14 19:30:00', '2025-04-14 22:00:00', 0),   -- IndiGo: Bengaluru→Kolkata
+(18, 4, 1, 5, '2025-04-14 20:00:00', '2025-04-14 21:30:00', 5),   -- Vistara: Mumbai→Hyderabad
+(19, 3, 5, 4, '2025-04-14 21:00:00', '2025-04-14 23:30:00', 0),   -- SpiceJet: Hyderabad→Kolkata
+(20, 5, 4, 3, '2025-04-14 22:15:00', '2025-04-15 00:45:00', 10),  -- GoAir: Kolkata→Bengaluru
+(21, 1, 1, 2, '2025-04-13 05:30:00', '2025-04-13 08:00:00', 0),    -- Air India: Mumbai→Delhi
+(22, 2, 2, 3, '2025-04-13 06:15:00', '2025-04-13 09:00:00', 5),    -- IndiGo: Delhi→Bengaluru
+(23, 3, 3, 4, '2025-04-13 07:00:00', '2025-04-13 09:30:00', 10),   -- SpiceJet: Bengaluru→Kolkata
+(24, 4, 4, 5, '2025-04-13 08:30:00', '2025-04-13 11:00:00', 0),    -- Vistara: Kolkata→Hyderabad
+(25, 5, 5, 1, '2025-04-13 09:15:00', '2025-04-13 10:45:00', 15),   -- GoAir: Hyderabad→Mumbai
+(26, 1, 1, 3, '2025-04-13 10:00:00', '2025-04-13 12:45:00', 0),    -- Air India: Mumbai→Bengaluru
+(27, 2, 2, 4, '2025-04-13 11:30:00', '2025-04-13 14:00:00', 5),    -- IndiGo: Delhi→Kolkata
+(28, 3, 3, 5, '2025-04-13 12:15:00', '2025-04-13 13:45:00', 0),    -- SpiceJet: Bengaluru→Hyderabad
+(29, 4, 4, 1, '2025-04-13 13:00:00', '2025-04-13 15:30:00', 10),   -- Vistara: Kolkata→Mumbai
+(30, 5, 5, 2, '2025-04-13 14:30:00', '2025-04-13 17:00:00', 0),    -- GoAir: Hyderabad→Delhi
+(31, 1, 2, 1, '2025-04-13 15:15:00', '2025-04-13 17:45:00', 5),    -- Air India: Delhi→Mumbai
+(32, 2, 3, 2, '2025-04-13 16:00:00', '2025-04-13 18:45:00', 0),    -- IndiGo: Bengaluru→Delhi
+(33, 3, 4, 3, '2025-04-13 17:30:00', '2025-04-13 20:00:00', 15),   -- SpiceJet: Kolkata→Bengaluru
+(34, 4, 5, 4, '2025-04-13 18:15:00', '2025-04-13 20:45:00', 0),    -- Vistara: Hyderabad→Kolkata
+(35, 5, 1, 5, '2025-04-13 19:00:00', '2025-04-13 20:30:00', 5),    -- GoAir: Mumbai→Hyderabad
+(36, 1, 1, 4, '2025-04-14 05:45:00', '2025-04-14 08:15:00', 0),    -- Air India: Mumbai→Kolkata
+(37, 2, 2, 5, '2025-04-14 06:30:00', '2025-04-14 09:00:00', 10),   -- IndiGo: Delhi→Hyderabad
+(38, 3, 3, 1, '2025-04-14 07:15:00', '2025-04-14 10:00:00', 0),    -- SpiceJet: Bengaluru→Mumbai
+(39, 4, 4, 2, '2025-04-14 08:00:00', '2025-04-14 10:30:00', 5),    -- Vistara: Kolkata→Delhi
+(40, 5, 5, 3, '2025-04-14 09:30:00', '2025-04-14 12:00:00', 0),    -- GoAir: Hyderabad→Bengaluru
+(41, 1, 1, 2, '2025-04-14 10:15:00', '2025-04-14 12:45:00', 15),   -- Air India: Mumbai→Delhi
+(42, 2, 2, 3, '2025-04-14 11:00:00', '2025-04-14 13:45:00', 0),    -- IndiGo: Delhi→Bengaluru
+(43, 3, 3, 4, '2025-04-14 12:30:00', '2025-04-14 15:00:00', 5),    -- SpiceJet: Bengaluru→Kolkata
+(44, 4, 4, 5, '2025-04-14 13:15:00', '2025-04-14 15:45:00', 0),    -- Vistara: Kolkata→Hyderabad
+(45, 5, 5, 1, '2025-04-14 14:00:00', '2025-04-14 15:30:00', 10),   -- GoAir: Hyderabad→Mumbai
+(46, 1, 2, 4, '2025-04-14 15:30:00', '2025-04-14 18:00:00', 0),    -- Air India: Delhi→Kolkata
+(47, 2, 3, 5, '2025-04-14 16:15:00', '2025-04-14 17:45:00', 5),    -- IndiGo: Bengaluru→Hyderabad
+(48, 3, 4, 1, '2025-04-14 17:00:00', '2025-04-14 19:30:00', 0),    -- SpiceJet: Kolkata→Mumbai
+(49, 4, 5, 2, '2025-04-14 18:30:00', '2025-04-14 21:00:00', 15),   -- Vistara: Hyderabad→Delhi
+(50, 5, 1, 3, '2025-04-14 19:15:00', '2025-04-14 22:00:00', 0);    -- GoAir: Mumbai→Bengaluru
+(51, 1, 1, 2, '2025-04-13 00:30:00', '2025-04-13 03:00:00', 0),    -- Air India: Mumbai→Delhi
+(52, 2, 2, 3, '2025-04-13 01:00:00', '2025-04-13 03:45:00', 5),    -- IndiGo: Delhi→Bengaluru
+(53, 3, 3, 4, '2025-04-13 01:30:00', '2025-04-13 04:00:00', 10),   -- SpiceJet: Bengaluru→Kolkata
+(54, 4, 4, 5, '2025-04-13 02:00:00', '2025-04-13 04:30:00', 0),    -- Vistara: Kolkata→Hyderabad
+(55, 5, 5, 1, '2025-04-13 02:30:00', '2025-04-13 04:00:00', 15),   -- GoAir: Hyderabad→Mumbai
+(56, 1, 1, 3, '2025-04-13 03:00:00', '2025-04-13 05:45:00', 0),    -- Air India: Mumbai→Bengaluru
+(57, 2, 2, 4, '2025-04-13 03:30:00', '2025-04-13 06:00:00', 5),    -- IndiGo: Delhi→Kolkata
+(58, 3, 3, 5, '2025-04-13 04:00:00', '2025-04-13 05:30:00', 0),    -- SpiceJet: Bengaluru→Hyderabad
+(59, 4, 4, 1, '2025-04-13 04:30:00', '2025-04-13 07:00:00', 10),   -- Vistara: Kolkata→Mumbai
+(60, 5, 5, 2, '2025-04-13 05:00:00', '2025-04-13 07:30:00', 0),    -- GoAir: Hyderabad→Delhi
+(61, 1, 2, 1, '2025-04-13 05:30:00', '2025-04-13 08:00:00', 5),    -- Air India: Delhi→Mumbai
+(62, 2, 3, 2, '2025-04-13 06:00:00', '2025-04-13 08:45:00', 0),    -- IndiGo: Bengaluru→Delhi
+(63, 3, 4, 3, '2025-04-13 06:30:00', '2025-04-13 09:00:00', 15),   -- SpiceJet: Kolkata→Bengaluru
+(64, 4, 5, 4, '2025-04-13 07:00:00', '2025-04-13 09:30:00', 0),    -- Vistara: Hyderabad→Kolkata
+(65, 5, 1, 5, '2025-04-13 07:30:00', '2025-04-13 09:00:00', 5),    -- GoAir: Mumbai→Hyderabad
+(66, 1, 1, 4, '2025-04-13 08:00:00', '2025-04-13 10:30:00', 0),    -- Air India: Mumbai→Kolkata
+(67, 2, 2, 5, '2025-04-13 08:30:00', '2025-04-13 11:00:00', 10),   -- IndiGo: Delhi→Hyderabad
+(68, 3, 3, 1, '2025-04-13 09:00:00', '2025-04-13 11:45:00', 0),    -- SpiceJet: Bengaluru→Mumbai
+(69, 4, 4, 2, '2025-04-13 09:30:00', '2025-04-13 12:00:00', 5),    -- Vistara: Kolkata→Delhi
+(70, 5, 5, 3, '2025-04-13 10:00:00', '2025-04-13 12:30:00', 0),    -- GoAir: Hyderabad→Bengaluru
+(71, 1, 1, 2, '2025-04-13 10:30:00', '2025-04-13 13:00:00', 15),   -- Air India: Mumbai→Delhi
+(72, 2, 2, 3, '2025-04-13 11:00:00', '2025-04-13 13:45:00', 0),    -- IndiGo: Delhi→Bengaluru
+(73, 3, 3, 4, '2025-04-13 11:30:00', '2025-04-13 14:00:00', 5),    -- SpiceJet: Bengaluru→Kolkata
+(74, 4, 4, 5, '2025-04-13 12:00:00', '2025-04-13 14:30:00', 0),    -- Vistara: Kolkata→Hyderabad
+(75, 5, 5, 1, '2025-04-13 12:30:00', '2025-04-13 14:00:00', 10),   -- GoAir: Hyderabad→Mumbai
+(76, 1, 1, 3, '2025-04-13 13:00:00', '2025-04-13 15:45:00', 0),    -- Air India: Mumbai→Bengaluru
+(77, 2, 2, 4, '2025-04-13 13:30:00', '2025-04-13 16:00:00', 5),    -- IndiGo: Delhi→Kolkata
+(78, 3, 3, 5, '2025-04-13 14:00:00', '2025-04-13 15:30:00', 0),    -- SpiceJet: Bengaluru→Hyderabad
+(79, 4, 4, 1, '2025-04-13 14:30:00', '2025-04-13 17:00:00', 15),   -- Vistara: Kolkata→Mumbai
+(80, 5, 5, 2, '2025-04-13 15:00:00', '2025-04-13 17:30:00', 0),    -- GoAir: Hyderabad→Delhi
+(81, 1, 2, 1, '2025-04-13 15:30:00', '2025-04-13 18:00:00', 5),    -- Air India: Delhi→Mumbai
+(82, 2, 3, 2, '2025-04-13 16:00:00', '2025-04-13 18:45:00', 0),    -- IndiGo: Bengaluru→Delhi
+(83, 3, 4, 3, '2025-04-13 16:30:00', '2025-04-13 19:00:00', 10),   -- SpiceJet: Kolkata→Bengaluru
+(84, 4, 5, 4, '2025-04-13 17:00:00', '2025-04-13 19:30:00', 0),    -- Vistara: Hyderabad→Kolkata
+(85, 5, 1, 5, '2025-04-13 17:30:00', '2025-04-13 19:00:00', 5),    -- GoAir: Mumbai→Hyderabad
+(86, 1, 1, 4, '2025-04-13 18:00:00', '2025-04-13 20:30:00', 0),    -- Air India: Mumbai→Kolkata
+(87, 2, 2, 5, '2025-04-13 18:30:00', '2025-04-13 21:00:00', 15),   -- IndiGo: Delhi→Hyderabad
+(88, 3, 3, 1, '2025-04-13 19:00:00', '2025-04-13 21:45:00', 0),    -- SpiceJet: Bengaluru→Mumbai
+(89, 4, 4, 2, '2025-04-13 19:30:00', '2025-04-13 22:00:00', 5),    -- Vistara: Kolkata→Delhi
+(90, 5, 5, 3, '2025-04-13 20:00:00', '2025-04-13 22:30:00', 0),    -- GoAir: Hyderabad→Bengaluru
+(91, 1, 1, 2, '2025-04-13 20:30:00', '2025-04-13 23:00:00', 10),   -- Air India: Mumbai→Delhi
+(92, 2, 2, 3, '2025-04-13 21:00:00', '2025-04-13 23:45:00', 0),    -- IndiGo: Delhi→Bengaluru
+(93, 3, 3, 4, '2025-04-13 21:30:00', '2025-04-14 00:00:00', 5),    -- SpiceJet: Bengaluru→Kolkata
+(94, 4, 4, 5, '2025-04-13 22:00:00', '2025-04-14 00:30:00', 0),    -- Vistara: Kolkata→Hyderabad
+(95, 5, 5, 1, '2025-04-13 22:30:00', '2025-04-14 00:00:00', 15),   -- GoAir: Hyderabad→Mumbai
+(96, 1, 1, 3, '2025-04-13 23:00:00', '2025-04-14 01:45:00', 0),    -- Air India: Mumbai→Bengaluru
+(97, 2, 2, 4, '2025-04-13 23:30:00', '2025-04-14 02:00:00', 5),    -- IndiGo: Delhi→Kolkata
+(98, 3, 3, 5, '2025-04-14 00:00:00', '2025-04-14 01:30:00', 0),    -- SpiceJet: Bengaluru→Hyderabad
+(99, 4, 4, 1, '2025-04-14 00:30:00', '2025-04-14 03:00:00', 10),   -- Vistara: Kolkata→Mumbai
+(100, 5, 5, 2, '2025-04-14 01:00:00', '2025-04-14 03:30:00', 0);   -- GoAir: Hyderabad→Delhi
+(101, 1, 1, 2, '2025-04-14 01:30:00', '2025-04-14 04:00:00', 5),    -- Air India: Mumbai→Delhi
+(102, 2, 2, 3, '2025-04-14 02:00:00', '2025-04-14 04:45:00', 0),    -- IndiGo: Delhi→Bengaluru
+(103, 3, 3, 4, '2025-04-14 02:30:00', '2025-04-14 05:00:00', 15),   -- SpiceJet: Bengaluru→Kolkata
+(104, 4, 4, 5, '2025-04-14 03:00:00', '2025-04-14 05:30:00', 0),    -- Vistara: Kolkata→Hyderabad
+(105, 5, 5, 1, '2025-04-14 03:30:00', '2025-04-14 05:00:00', 5),    -- GoAir: Hyderabad→Mumbai
+(106, 1, 1, 3, '2025-04-14 04:00:00', '2025-04-14 06:45:00', 0),    -- Air India: Mumbai→Bengaluru
+(107, 2, 2, 4, '2025-04-14 04:30:00', '2025-04-14 07:00:00', 10),   -- IndiGo: Delhi→Kolkata
+(108, 3, 3, 5, '2025-04-14 05:00:00', '2025-04-14 06:30:00', 0),    -- SpiceJet: Bengaluru→Hyderabad
+(109, 4, 4, 1, '2025-04-14 05:30:00', '2025-04-14 08:00:00', 5),    -- Vistara: Kolkata→Mumbai
+(110, 5, 5, 2, '2025-04-14 06:00:00', '2025-04-14 08:30:00', 0),    -- GoAir: Hyderabad→Delhi
+(111, 1, 2, 1, '2025-04-14 06:30:00', '2025-04-14 09:00:00', 15),   -- Air India: Delhi→Mumbai
+(112, 2, 3, 2, '2025-04-14 07:00:00', '2025-04-14 09:45:00', 0),    -- IndiGo: Bengaluru→Delhi
+(113, 3, 4, 3, '2025-04-14 07:30:00', '2025-04-14 10:00:00', 5),    -- SpiceJet: Kolkata→Bengaluru
+(114, 4, 5, 4, '2025-04-14 08:00:00', '2025-04-14 10:30:00', 0),    -- Vistara: Hyderabad→Kolkata
+(115, 5, 1, 5, '2025-04-14 08:30:00', '2025-04-14 10:00:00', 10),   -- GoAir: Mumbai→Hyderabad
+(116, 1, 1, 4, '2025-04-14 09:00:00', '2025-04-14 11:30:00', 0),    -- Air India: Mumbai→Kolkata
+(117, 2, 2, 5, '2025-04-14 09:30:00', '2025-04-14 12:00:00', 5),    -- IndiGo: Delhi→Hyderabad
+(118, 3, 3, 1, '2025-04-14 10:00:00', '2025-04-14 12:45:00', 0),    -- SpiceJet: Bengaluru→Mumbai
+(119, 4, 4, 2, '2025-04-14 10:30:00', '2025-04-14 13:00:00', 15),   -- Vistara: Kolkata→Delhi
+(120, 5, 5, 3, '2025-04-14 11:00:00', '2025-04-14 13:30:00', 0),    -- GoAir: Hyderabad→Bengaluru
+(121, 1, 1, 2, '2025-04-14 11:30:00', '2025-04-14 14:00:00', 5),    -- Air India: Mumbai→Delhi
+(122, 2, 2, 3, '2025-04-14 12:00:00', '2025-04-14 14:45:00', 0),    -- IndiGo: Delhi→Bengaluru
+(123, 3, 3, 4, '2025-04-14 12:30:00', '2025-04-14 15:00:00', 10),   -- SpiceJet: Bengaluru→Kolkata
+(124, 4, 4, 5, '2025-04-14 13:00:00', '2025-04-14 15:30:00', 0),    -- Vistara: Kolkata→Hyderabad
+(125, 5, 5, 1, '2025-04-14 13:30:00', '2025-04-14 15:00:00', 5),    -- GoAir: Hyderabad→Mumbai
+(126, 1, 1, 3, '2025-04-14 14:00:00', '2025-04-14 16:45:00', 0),    -- Air India: Mumbai→Bengaluru
+(127, 2, 2, 4, '2025-04-14 14:30:00', '2025-04-14 17:00:00', 15),   -- IndiGo: Delhi→Kolkata
+(128, 3, 3, 5, '2025-04-14 15:00:00', '2025-04-14 16:30:00', 0),    -- SpiceJet: Bengaluru→Hyderabad
+(129, 4, 4, 1, '2025-04-14 15:30:00', '2025-04-14 18:00:00', 5),    -- Vistara: Kolkata→Mumbai
+(130, 5, 5, 2, '2025-04-14 16:00:00', '2025-04-14 18:30:00', 0),    -- GoAir: Hyderabad→Delhi
+(131, 1, 2, 1, '2025-04-14 16:30:00', '2025-04-14 19:00:00', 10),   -- Air India: Delhi→Mumbai
+(132, 2, 3, 2, '2025-04-14 17:00:00', '2025-04-14 19:45:00', 0),    -- IndiGo: Bengaluru→Delhi
+(133, 3, 4, 3, '2025-04-14 17:30:00', '2025-04-14 20:00:00', 5),    -- SpiceJet: Kolkata→Bengaluru
+(134, 4, 5, 4, '2025-04-14 18:00:00', '2025-04-14 20:30:00', 0),    -- Vistara: Hyderabad→Kolkata
+(135, 5, 1, 5, '2025-04-14 18:30:00', '2025-04-14 20:00:00', 15),   -- GoAir: Mumbai→Hyderabad
+(136, 1, 1, 4, '2025-04-14 19:00:00', '2025-04-14 21:30:00', 0),    -- Air India: Mumbai→Kolkata
+(137, 2, 2, 5, '2025-04-14 19:30:00', '2025-04-14 22:00:00', 5),    -- IndiGo: Delhi→Hyderabad
+(138, 3, 3, 1, '2025-04-14 20:00:00', '2025-04-14 22:45:00', 0),    -- SpiceJet: Bengaluru→Mumbai
+(139, 4, 4, 2, '2025-04-14 20:30:00', '2025-04-14 23:00:00', 10),   -- Vistara: Kolkata→Delhi
+(140, 5, 5, 3, '2025-04-14 21:00:00', '2025-04-14 23:30:00', 0),    -- GoAir: Hyderabad→Bengaluru
+(141, 1, 1, 2, '2025-04-14 21:30:00', '2025-04-15 00:00:00', 5),    -- Air India: Mumbai→Delhi
+(142, 2, 2, 3, '2025-04-14 22:00:00', '2025-04-15 00:45:00', 0),    -- IndiGo: Delhi→Bengaluru
+(143, 3, 3, 4, '2025-04-14 22:30:00', '2025-04-15 01:00:00', 15),   -- SpiceJet: Bengaluru→Kolkata
+(144, 4, 4, 5, '2025-04-14 23:00:00', '2025-04-15 01:30:00', 0),    -- Vistara: Kolkata→Hyderabad
+(145, 5, 5, 1, '2025-04-14 23:30:00', '2025-04-15 01:00:00', 5),    -- GoAir: Hyderabad→Mumbai
+(146, 1, 1, 3, '2025-04-14 00:00:00', '2025-04-14 02:45:00', 0),    -- Air India: Mumbai→Bengaluru
+(147, 2, 2, 4, '2025-04-14 00:30:00', '2025-04-14 03:00:00', 10),   -- IndiGo: Delhi→Kolkata
+(148, 3, 3, 5, '2025-04-14 01:00:00', '2025-04-14 02:30:00', 0),    -- SpiceJet: Bengaluru→Hyderabad
+(149, 4, 4, 1, '2025-04-14 01:30:00', '2025-04-14 04:00:00', 5),    -- Vistara: Kolkata→Mumbai
+(150, 5, 5, 2, '2025-04-14 02:00:00', '2025-04-14 04:30:00', 0),    -- GoAir: Hyderabad→Delhi
+(151, 1, 2, 1, '2025-04-14 02:30:00', '2025-04-14 05:00:00', 15),   -- Air India: Delhi→Mumbai
+(152, 2, 3, 2, '2025-04-14 03:00:00', '2025-04-14 05:45:00', 0),    -- IndiGo: Bengaluru→Delhi
+(153, 3, 4, 3, '2025-04-14 03:30:00', '2025-04-14 06:00:00', 5),    -- SpiceJet: Kolkata→Bengaluru
+(154, 4, 5, 4, '2025-04-14 04:00:00', '2025-04-14 06:30:00', 0),    -- Vistara: Hyderabad→Kolkata
+(155, 5, 1, 5, '2025-04-14 04:30:00', '2025-04-14 06:00:00', 10),   -- GoAir: Mumbai→Hyderabad
+(156, 1, 1, 4, '2025-04-14 05:00:00', '2025-04-14 07:30:00', 0),    -- Air India: Mumbai→Kolkata
+(157, 2, 2, 5, '2025-04-14 05:30:00', '2025-04-14 08:00:00', 5),    -- IndiGo: Delhi→Hyderabad
+(158, 3, 3, 1, '2025-04-14 06:00:00', '2025-04-14 08:45:00', 0),    -- SpiceJet: Bengaluru→Mumbai
+(159, 4, 4, 2, '2025-04-14 06:30:00', '2025-04-14 09:00:00', 15),   -- Vistara: Kolkata→Delhi
+(160, 5, 5, 3, '2025-04-14 07:00:00', '2025-04-14 09:30:00', 0),    -- GoAir: Hyderabad→Bengaluru
+(161, 1, 1, 2, '2025-04-14 07:30:00', '2025-04-14 10:00:00', 5),    -- Air India: Mumbai→Delhi
+(162, 2, 2, 3, '2025-04-14 08:00:00', '2025-04-14 10:45:00', 0),    -- IndiGo: Delhi→Bengaluru
+(163, 3, 3, 4, '2025-04-14 08:30:00', '2025-04-14 11:00:00', 10),   -- SpiceJet: Bengaluru→Kolkata
+(164, 4, 4, 5, '2025-04-14 09:00:00', '2025-04-14 11:30:00', 0),    -- Vistara: Kolkata→Hyderabad
+(165, 5, 5, 1, '2025-04-14 09:30:00', '2025-04-14 11:00:00', 5),    -- GoAir: Hyderabad→Mumbai
+(166, 1, 1, 3, '2025-04-14 10:00:00', '2025-04-14 12:45:00', 0),    -- Air India: Mumbai→Bengaluru
+(167, 2, 2, 4, '2025-04-14 10:30:00', '2025-04-14 13:00:00', 15),   -- IndiGo: Delhi→Kolkata
+(168, 3, 3, 5, '2025-04-14 11:00:00', '2025-04-14 12:30:00', 0),    -- SpiceJet: Bengaluru→Hyderabad
+(169, 4, 4, 1, '2025-04-14 11:30:00', '2025-04-14 14:00:00', 5),    -- Vistara: Kolkata→Mumbai
+(170, 5, 5, 2, '2025-04-14 12:00:00', '2025-04-14 14:30:00', 0),    -- GoAir: Hyderabad→Delhi
+(171, 1, 2, 1, '2025-04-14 12:30:00', '2025-04-14 15:00:00', 10),   -- Air India: Delhi→Mumbai
+(172, 2, 3, 2, '2025-04-14 13:00:00', '2025-04-14 15:45:00', 0),    -- IndiGo: Bengaluru→Delhi
+(173, 3, 4, 3, '2025-04-14 13:30:00', '2025-04-14 16:00:00', 5),    -- SpiceJet: Kolkata→Bengaluru
+(174, 4, 5, 4, '2025-04-14 14:00:00', '2025-04-14 16:30:00', 0),    -- Vistara: Hyderabad→Kolkata
+(175, 5, 1, 5, '2025-04-14 14:30:00', '2025-04-14 16:00:00', 15),   -- GoAir: Mumbai→Hyderabad
+(176, 1, 1, 4, '2025-04-14 15:00:00', '2025-04-14 17:30:00', 0),    -- Air India: Mumbai→Kolkata
+(177, 2, 2, 5, '2025-04-14 15:30:00', '2025-04-14 18:00:00', 5),    -- IndiGo: Delhi→Hyderabad
+(178, 3, 3, 1, '2025-04-14 16:00:00', '2025-04-14 18:45:00', 0),    -- SpiceJet: Bengaluru→Mumbai
+(179, 4, 4, 2, '2025-04-14 16:30:00', '2025-04-14 19:00:00', 10),   -- Vistara: Kolkata→Delhi
+(180, 5, 5, 3, '2025-04-14 17:00:00', '2025-04-14 19:30:00', 0),    -- GoAir: Hyderabad→Bengaluru
+(181, 1, 1, 2, '2025-04-14 17:30:00', '2025-04-14 20:00:00', 5),    -- Air India: Mumbai→Delhi
+(182, 2, 2, 3, '2025-04-14 18:00:00', '2025-04-14 20:45:00', 0),    -- IndiGo: Delhi→Bengaluru
+(183, 3, 3, 4, '2025-04-14 18:30:00', '2025-04-14 21:00:00', 15),   -- SpiceJet: Bengaluru→Kolkata
+(184, 4, 4, 5, '2025-04-14 19:00:00', '2025-04-14 21:30:00', 0),    -- Vistara: Kolkata→Hyderabad
+(185, 5, 5, 1, '2025-04-14 19:30:00', '2025-04-14 21:00:00', 5),    -- GoAir: Hyderabad→Mumbai
+(186, 1, 1, 3, '2025-04-14 20:00:00', '2025-04-14 22:45:00', 0),    -- Air India: Mumbai→Bengaluru
+(187, 2, 2, 4, '2025-04-14 20:30:00', '2025-04-14 23:00:00', 10),   -- IndiGo: Delhi→Kolkata
+(188, 3, 3, 5, '2025-04-14 21:00:00', '2025-04-14 22:30:00', 0),    -- SpiceJet: Bengaluru→Hyderabad
+(189, 4, 4, 1, '2025-04-14 21:30:00', '2025-04-15 00:00:00', 5),    -- Vistara: Kolkata→Mumbai
+(190, 5, 5, 2, '2025-04-14 22:00:00', '2025-04-15 00:30:00', 0),    -- GoAir: Hyderabad→Delhi
+(191, 1, 2, 1, '2025-04-14 22:30:00', '2025-04-15 01:00:00', 15),   -- Air India: Delhi→Mumbai
+(192, 2, 3, 2, '2025-04-14 23:00:00', '2025-04-15 01:45:00', 0),    -- IndiGo: Bengaluru→Delhi
+(193, 3, 4, 3, '2025-04-14 23:30:00', '2025-04-15 02:00:00', 5),    -- SpiceJet: Kolkata→Bengaluru
+(194, 4, 5, 4, '2025-04-14 00:00:00', '2025-04-14 02:30:00', 0),    -- Vistara: Hyderabad→Kolkata
+(195, 5, 1, 5, '2025-04-14 00:30:00', '2025-04-14 02:00:00', 10),   -- GoAir: Mumbai→Hyderabad
+(196, 1, 1, 4, '2025-04-14 01:00:00', '2025-04-14 03:30:00', 0),    -- Air India: Mumbai→Kolkata
+(197, 2, 2, 5, '2025-04-14 01:30:00', '2025-04-14 04:00:00', 5),    -- IndiGo: Delhi→Hyderabad
+(198, 3, 3, 1, '2025-04-14 02:00:00', '2025-04-14 04:45:00', 0),    -- SpiceJet: Bengaluru→Mumbai
+(199, 4, 4, 2, '2025-04-14 02:30:00', '2025-04-14 05:00:00', 15),   -- Vistara: Kolkata→Delhi
+(200, 5, 5, 3, '2025-04-14 03:00:00', '2025-04-14 05:30:00', 0);    -- GoAir: Hyderabad→Bengaluru
+
+-- Setting initial flight delay to zero for login-delay page functionality demonstration
+
+update flight set delay = 0;
