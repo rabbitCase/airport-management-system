@@ -13,6 +13,6 @@ router.get('/logged-in',(req,res)=>{
         res.status(500).send('Error encoutnered');
     }
     
-})
+});
 
 module.exports = router;

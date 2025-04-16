@@ -6,7 +6,7 @@ const loginPath = path.join(__dirname, '../../frontend/staff-login/index.html');
 
 router.use(express.static(path.join(__dirname, '../../frontend/staff-login')));
 
-router.get('/baggage', (req, res) => {
+router.get('/login', (req, res) => {
     try {
         res.sendFile(loginPath);
     } catch (err) {
