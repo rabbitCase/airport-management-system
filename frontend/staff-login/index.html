@@ -4,33 +4,30 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="./style.css" />
+		<script src="./main.js" defer></script>
 		<title>Staff Login</title>
 	</head>
 	<body class="staff-login">
 		<div class="login-box">
 			<h2>Staff Login</h2>
-			<form action="#">
-				
+			<form>
 				<p>
 					<input
 						type="text"
-						name="username"
-						id="username"
+						id="staffid"
 						placeholder="Staff ID"
 						required />
 				</p>
 				<p>
 					<input
-						type="password"
-						name="password"
-						id="password"
-						placeholder="Password"
-						required />
+						type="text"
+						id="name"
+						placeholder="Name"
+					/>
 				</p>
 				<div class="button-container">
 					<a href="http://localhost:3000/register/" target="_blank" style="font-size: 15px;">Register</a>
-					<a href="http://localhost:3000/logged-in/" target="_blank" style="font-size: 15px;">After login</a>
-					<button type="submit" id="button">Submit</button>
+					<button id="button">Submit</button>
 				</div>
 			</form>
 		</div>

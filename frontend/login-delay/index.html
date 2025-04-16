@@ -12,13 +12,13 @@
 			<div id="main">
 				<h1><i>Staff Management Portal</i></h1>
 				<h2>Update flight delays</h2>
-				
+				<form action="#">
 					<div id="delay-container">
 						<div class="input-container">
 							<label class="label">Flight ID</label>
 							<input
 								type="text"
-								placeholder="IE2653"
+								placeholder="200"
 								id="flightid-input"
 								required />
 						</div>
@@ -27,13 +27,13 @@
 								>Delay <br />
 								(in minutes)
 							</label>
-							<input type="text" placeholder="25" id="delay-input" required />
+							<input type="number" placeholder="25" id="delay-input" min="1" required/>
 						</div>
 					</div>
 					<div id="button-container">
-						<button id="send-button">Update</button>
+						<button id="send-button" type="submit">Update</button>
 					</div>
-				
+				</form>
 			</div>
 			<div id="credits">
 				Photo by

@@ -30,7 +30,13 @@ button.addEventListener('click', async (event) =>{
             })
         });
         const response = await request.json();
-        console.log(response);
+        if(response.message == "query executed"){
+            alert("Baggage Check-in successful. Check Database");
+        }
+        else{
+            alert("Baggage Check-in Failed. Try Again");
+            console.log(response);
+        }
     } catch (error) {
         console.log(error);
     }

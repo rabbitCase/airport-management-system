@@ -27,7 +27,13 @@ button.addEventListener('click', async (event) =>{
             })
         });
         const response = await request.json();
-        console.log(response);
+        if(response.message == "query executed"){
+            alert("Log added. Check Database");
+        }
+        else{
+            alert("Log Failed to update. Try again");
+            console.log(response);
+        }
     } catch (error) {
         console.log(error);
     }

@@ -2,8 +2,9 @@ const button = document.getElementById('send-button');
 const flightid = document.getElementById('flightid-input');
 const delay = document.getElementById('delay-input');
 
-button.addEventListener('click', async () =>{
+button.addEventListener('click', async (event) =>{
     try {
+        event.preventDefault();
         const request = await fetch("http://localhost:3000/delay",{
             mode : 'cors',
             method : 'POST',
