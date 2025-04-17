@@ -8,6 +8,10 @@ body{
     background-position: center;
     background-size: cover;
 }
+
+body::-webkit-scrollbar {
+    display: none; 
+}
 a{
     text-decoration: none;
     color: black;

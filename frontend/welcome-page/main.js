@@ -126,8 +126,8 @@ button.addEventListener('click', async () => {
             const time = document.createElement('div');//time of departure
             time.textContent = `${key.DepartureTime}`;
             deptime.appendChild(time);
-
         });
+        window.scrollBy({ top : 450 , behavior : 'smooth'});
     } catch (error) {
         console.log(error)
     }
