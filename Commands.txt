@@ -166,42 +166,6 @@ INSERT INTO LostAndFound (ItemID, AirportID, DateFound, Description) VALUES
 (4, 4, '2025-04-04', 'Red suitcase with clothes'),
 (5, 5, '2025-04-05', 'Pair of glasses in black case');
 
-INSERT INTO Works_For (StaffID, AirportID) VALUES
-(1, 1),
-(2, 2),
-(3, 3),
-(4, 4),
-(5, 5);
-
-INSERT INTO Flight_Passenger (FlightID, PassengerID) VALUES
-(1, 1),
-(2, 2),
-(3, 3),
-(4, 4),
-(5, 5);
-
-INSERT INTO Airport_Airline (AirportID, AirlineID) VALUES
-(1, 1),
-(2, 2),
-(3, 3),
-(4, 4),
-(5, 5);
-
-INSERT INTO Staff_Role (StaffID, Role) VALUES
-(1, 'Security Officer'),
-(2, 'Check-in Staff'),
-(3, 'Ground Crew'),
-(4, 'Customer Service'),
-(5, 'Baggage Handler');
-
-INSERT INTO Flight_Gate (FlightID, GateID) VALUES
-(1, 1),
-(2, 2),
-(3, 3),
-(4, 4),
-(5, 5);
-
-
 INSERT INTO Flight (FlightID, AirlineID, DepartureAirportID, ArrivalAirportID, DepartureTime, ArrivalTime, Delay) VALUES
 (1, 1, 1, 2, '2025-04-13 08:00:00', '2025-04-13 10:30:00', 0),    -- Air India: Mumbai→Delhi
 (2, 2, 2, 3, '2025-04-13 11:00:00', '2025-04-13 13:15:00', 10),   -- IndiGo: Delhi→Bengaluru
@@ -252,7 +216,7 @@ INSERT INTO Flight (FlightID, AirlineID, DepartureAirportID, ArrivalAirportID, D
 (47, 2, 3, 5, '2025-04-14 16:15:00', '2025-04-14 17:45:00', 5),    -- IndiGo: Bengaluru→Hyderabad
 (48, 3, 4, 1, '2025-04-14 17:00:00', '2025-04-14 19:30:00', 0),    -- SpiceJet: Kolkata→Mumbai
 (49, 4, 5, 2, '2025-04-14 18:30:00', '2025-04-14 21:00:00', 15),   -- Vistara: Hyderabad→Delhi
-(50, 5, 1, 3, '2025-04-14 19:15:00', '2025-04-14 22:00:00', 0);    -- GoAir: Mumbai→Bengaluru
+(50, 5, 1, 3, '2025-04-14 19:15:00', '2025-04-14 22:00:00', 0),    -- GoAir: Mumbai→Bengaluru
 (51, 1, 1, 2, '2025-04-13 00:30:00', '2025-04-13 03:00:00', 0),    -- Air India: Mumbai→Delhi
 (52, 2, 2, 3, '2025-04-13 01:00:00', '2025-04-13 03:45:00', 5),    -- IndiGo: Delhi→Bengaluru
 (53, 3, 3, 4, '2025-04-13 01:30:00', '2025-04-13 04:00:00', 10),   -- SpiceJet: Bengaluru→Kolkata
@@ -302,7 +266,7 @@ INSERT INTO Flight (FlightID, AirlineID, DepartureAirportID, ArrivalAirportID, D
 (97, 2, 2, 4, '2025-04-13 23:30:00', '2025-04-14 02:00:00', 5),    -- IndiGo: Delhi→Kolkata
 (98, 3, 3, 5, '2025-04-14 00:00:00', '2025-04-14 01:30:00', 0),    -- SpiceJet: Bengaluru→Hyderabad
 (99, 4, 4, 1, '2025-04-14 00:30:00', '2025-04-14 03:00:00', 10),   -- Vistara: Kolkata→Mumbai
-(100, 5, 5, 2, '2025-04-14 01:00:00', '2025-04-14 03:30:00', 0);   -- GoAir: Hyderabad→Delhi
+(100, 5, 5, 2, '2025-04-14 01:00:00', '2025-04-14 03:30:00', 0),   -- GoAir: Hyderabad→Delhi
 (101, 1, 1, 2, '2025-04-14 01:30:00', '2025-04-14 04:00:00', 5),    -- Air India: Mumbai→Delhi
 (102, 2, 2, 3, '2025-04-14 02:00:00', '2025-04-14 04:45:00', 0),    -- IndiGo: Delhi→Bengaluru
 (103, 3, 3, 4, '2025-04-14 02:30:00', '2025-04-14 05:00:00', 15),   -- SpiceJet: Bengaluru→Kolkata
@@ -403,6 +367,42 @@ INSERT INTO Flight (FlightID, AirlineID, DepartureAirportID, ArrivalAirportID, D
 (198, 3, 3, 1, '2025-04-14 02:00:00', '2025-04-14 04:45:00', 0),    -- SpiceJet: Bengaluru→Mumbai
 (199, 4, 4, 2, '2025-04-14 02:30:00', '2025-04-14 05:00:00', 15),   -- Vistara: Kolkata→Delhi
 (200, 5, 5, 3, '2025-04-14 03:00:00', '2025-04-14 05:30:00', 0);    -- GoAir: Hyderabad→Bengaluru
+
+INSERT INTO Works_For (StaffID, AirportID) VALUES
+(1, 1),
+(2, 2),
+(3, 3),
+(4, 4),
+(5, 5);
+
+INSERT INTO Flight_Passenger (FlightID, PassengerID) VALUES
+(1, 1),
+(2, 2),
+(3, 3),
+(4, 4),
+(5, 5);
+
+INSERT INTO Airport_Airline (AirportID, AirlineID) VALUES
+(1, 1),
+(2, 2),
+(3, 3),
+(4, 4),
+(5, 5);
+
+INSERT INTO Staff_Role (StaffID, Role) VALUES
+(1, 'Security Officer'),
+(2, 'Check-in Staff'),
+(3, 'Ground Crew'),
+(4, 'Customer Service'),
+(5, 'Baggage Handler');
+
+INSERT INTO Flight_Gate (FlightID, GateID) VALUES
+(1, 1),
+(2, 2),
+(3, 3),
+(4, 4),
+(5, 5);
+
 
 -- Setting initial flight delay to zero for login-delay page functionality demonstration
 
