@@ -11,6 +11,7 @@ a{
     text-decoration: none;
     color: white;
 }
+
 h1{
     margin:0;
     margin-bottom: 20px;
@@ -20,6 +21,7 @@ h2{
     margin: 0;
     font-size: 70px;
 }
+
 #icon-container{
     display: flex;
     justify-content: flex-end;
@@ -69,6 +71,7 @@ h2{
         transform: rotateZ(-10deg);
     }
 }
+
 #headers{
     background-image: linear-gradient(rgb(255, 11, 255),rgb(129, 9, 129),rgb(35, 34, 34),rgb(35, 34, 34));
     color: transparent;
@@ -85,6 +88,7 @@ h2{
     align-items: center;
     justify-content: center;
 }
+
 #button{
     display: flex;
     justify-content: center;
