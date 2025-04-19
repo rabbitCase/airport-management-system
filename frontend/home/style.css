@@ -117,6 +117,7 @@ h2{
 #button svg{
     filter: invert(1);
     height: 30px;
+    width: 30px;
     margin-left: 2px;
     margin-top: 8px;
 }
