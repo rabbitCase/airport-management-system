@@ -4,9 +4,10 @@ body{
     height: 100vh;
     background-color: #c7c7c7;
     font-family: 'Faustina';
-    background: url(https://www.bengaluruairport.com/static/media/outdoor-plant-mobile.560619c92c806b63a29886d8fff0007a.svg);
+    background: url(https://wallpapercave.com/wp/wp12256363.jpg);
     background-position: center;
     background-size: cover;
+    background-attachment: fixed;
 }
 
 body::-webkit-scrollbar {
@@ -29,8 +30,10 @@ a{
     justify-content: space-between;
     align-items: center;
     width: 100vw;
-    border-bottom: 5px solid black;
-    background-image: linear-gradient(to bottom, white, rgb(160, 227, 255));
+    border-bottom: 5px solid white;
+    color: black;
+    background-color: rgb(195, 107, 0);
+    /* background-image: linear-gradient(to bottom, white, rgb(160, 227, 255)); */
 }
 #header-container button{
     margin-right: 80px;
@@ -44,7 +47,7 @@ a{
     transition: border 0.05s ease;
 }
 #header-container button:hover{
-    border-bottom: 4px solid rgb(17, 127, 5);
+    border-bottom: 4px solid rgb(17, 127, 5)git pu;
 }
 h1{
     font-size: 50px;
