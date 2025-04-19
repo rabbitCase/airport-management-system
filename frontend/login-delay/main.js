@@ -5,6 +5,10 @@ const delay = document.getElementById('delay-input');
 button.addEventListener('click', async (event) =>{
     try {
         event.preventDefault();
+        if (delay.value < 1) {
+            alert("Please enter a value greater than 0");
+            return;
+        }
         const request = await fetch("http://localhost:3000/delay",{
             mode : 'cors',
             method : 'POST',
