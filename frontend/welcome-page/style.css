@@ -1,173 +1,173 @@
-@import url('https://fonts.googleapis.com/css2?family=Faustina:ital,wght@0,300..800;1,300..800&display=swap');
-body{
-    margin : 0;
-    height: 100vh;
-    background-color: #c7c7c7;
-    font-family: 'Faustina';
-    background: url(https://wallpapercave.com/wp/wp12256363.jpg);
-    background-position: center;
-    background-size: cover;
-    background-attachment: fixed;
+@import url("https://fonts.googleapis.com/css2?family=Faustina:ital,wght@0,300..800;1,300..800&display=swap");
+body {
+	margin: 0;
+	height: 100vh;
+	background-color: #c7c7c7;
+	font-family: "Faustina";
+	background: url(https://wallpapercave.com/wp/wp12256363.jpg);
+	background-position: center;
+	background-size: cover;
+	background-attachment: fixed;
 }
 
 body::-webkit-scrollbar {
-    display: none; 
+	display: none;
 }
-a{
-    text-decoration: none;
-    color: black;
-}
-
-#info-container{
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    line-height: 1.7;
+a {
+	text-decoration: none;
+	color: black;
 }
 
-#header-container{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100vw;
-    border-bottom: 5px solid white;
-    color: black;
-    background-color: rgb(195, 107, 0);
-    /* background-image: linear-gradient(to bottom, white, rgb(160, 227, 255)); */
-}
-#header-container button{
-    margin-right: 80px;
-    width: 150px;
-    height: 50px;
-    font-size: 25px;
-    background-color: transparent;
-    border: none;
-    border-bottom: 2px solid rgb(43, 43, 43);
-    color: black;
-    transition: border 0.05s ease;
-}
-#header-container button:hover{
-    border-bottom: 4px solid rgb(17, 127, 5)git pu;
-}
-h1{
-    font-size: 50px;
-    padding-left: 10px;
-}
-#tracker-container{
-    display: flex;
-    flex-direction: column;
-    background-color: white;
-    margin-top: 20px;
-    margin-left: 50px;
-    margin-right: 50px;
-    border-radius: 10px;
-    height: 230px;
-    overflow: hidden;
-    box-shadow: 1px 1px 2px 4px rgba(0, 0, 0, 0.237);
-    transition: height 0.3s ease;
-}
-#tracker-button{
-    height: 80px;
-    width: 250px;
-    font-size: 30px;
-    border-radius: 10px;
-    cursor: pointer;
-    background-color: transparent;
-    transition: background-color 0.3s ease;
-}
-#tracker-button:hover{
-    background-color: rgb(36, 186, 245);
-}
-#tracker-box{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 50px;
-    gap: 30px;
-    font-size: 40px;
+#info-container {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	line-height: 1.7;
 }
 
-#tracker-box label{
-    margin-top: 20px;
-    margin-bottom: 20px;
+#header-container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100vw;
+	border-bottom: 5px solid white;
+	color: black;
+	background-color: rgb(195, 107, 0);
+	/* background-image: linear-gradient(to bottom, white, rgb(160, 227, 255)); */
 }
-#tracker-box select{
-    height: 40px;
-    width: 200px;
-    border-radius: 8px;
-    text-align: center;
-    font-size: 25px;
+#header-container button {
+	margin-right: 80px;
+	width: 150px;
+	height: 50px;
+	font-size: 25px;
+	background-color: transparent;
+	border: none;
+	border-bottom: 2px solid rgb(43, 43, 43);
+	color: black;
+	transition: border 0.05s ease;
 }
-#tracker-box input{
-    height: 40px;
-    width: 200px;
-    border-radius: 8px;
-    text-align: center;
-    font-size: 25px;
+#header-container button:hover {
+	border-bottom: 4px solid rgb(17, 127, 5);
 }
-#tracker-box button{
-    height : 50px;
-    width : 200px;
-    border-radius : 10px;
-    font-size: 20px;
-    font-weight: 500;
-    color: #E8E6E3;
-    cursor: pointer;
-    background-color: #08565A;
-    transition : box-shadow 0.2s ease;
+h1 {
+	font-size: 50px;
+	padding-left: 10px;
 }
-#tracker-box button:hover{
-    box-shadow: 1px 1px 2px 3px #11a2aa84 ;
+#tracker-container {
+	display: flex;
+	flex-direction: column;
+	background-color: white;
+	margin-top: 20px;
+	margin-left: 50px;
+	margin-right: 50px;
+	border-radius: 10px;
+	height: 230px;
+	overflow: hidden;
+	box-shadow: 1px 1px 2px 4px rgba(0, 0, 0, 0.237);
+	transition: height 0.3s ease;
 }
-#tracker-fields{
-    display: flex;
-    gap: 40px;
+#tracker-button {
+	height: 80px;
+	width: 250px;
+	font-size: 30px;
+	border-radius: 10px;
+	cursor: pointer;
+	background-color: transparent;
+	transition: background-color 0.3s ease;
 }
-.tracker-input{
-    display: flex;
-    flex-direction: column;
+#tracker-button:hover {
+	background-color: rgb(36, 186, 245);
 }
-#results{
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
-    margin-top: 30px;
-    width: fit-content;
-    height: fit-content;
+#tracker-box {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-top: 50px;
+	gap: 30px;
+	font-size: 40px;
 }
-.card{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 10px;
-    height: 100px;
-    width: 700px;
-    border-radius: 10px;
-    border: 1px solid rgb(74, 74, 74);
-    box-shadow: 1px 1px 3px 2px rgba(0, 0, 0, 0.368);
-    will-change: transform;
-    background-color: rgb(255, 255, 255);
-    transition: transform 0.3s ease;
+
+#tracker-box label {
+	margin-top: 20px;
+	margin-bottom: 20px;
 }
-.card:hover{
-    transform: scale(1.02);
+#tracker-box select {
+	height: 40px;
+	width: 200px;
+	border-radius: 8px;
+	text-align: center;
+	font-size: 25px;
 }
-.left-info{
-    display: flex;
-    flex-direction: column;
-    margin: 10px;
-    margin-left: 10px;
-    font-size: 25px;
+#tracker-box input {
+	height: 40px;
+	width: 200px;
+	border-radius: 8px;
+	text-align: center;
+	font-size: 25px;
 }
-.right-info{
-    display: flex;
-    flex-direction: column;
-    text-align: right;
-    margin: 10px;
-    margin-left: 10px;
-    font-size: 25px;
+#tracker-box button {
+	height: 50px;
+	width: 200px;
+	border-radius: 10px;
+	font-size: 20px;
+	font-weight: 500;
+	color: #e8e6e3;
+	cursor: pointer;
+	background-color: #08565a;
+	transition: box-shadow 0.2s ease;
+}
+#tracker-box button:hover {
+	box-shadow: 1px 1px 2px 3px #11a2aa84;
+}
+#tracker-fields {
+	display: flex;
+	gap: 40px;
+}
+.tracker-input {
+	display: flex;
+	flex-direction: column;
+}
+#results {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	margin: 0 auto;
+	margin-top: 30px;
+	width: fit-content;
+	height: fit-content;
+}
+.card {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin: 10px;
+	height: 100px;
+	width: 700px;
+	border-radius: 10px;
+	border: 1px solid rgb(74, 74, 74);
+	box-shadow: 1px 1px 3px 2px rgba(0, 0, 0, 0.368);
+	will-change: transform;
+	background-color: rgb(255, 255, 255);
+	transition: transform 0.3s ease;
+}
+.card:hover {
+	transform: scale(1.02);
+}
+.left-info {
+	display: flex;
+	flex-direction: column;
+	margin: 10px;
+	margin-left: 10px;
+	font-size: 25px;
+}
+.right-info {
+	display: flex;
+	flex-direction: column;
+	text-align: right;
+	margin: 10px;
+	margin-left: 10px;
+	font-size: 25px;
 }
