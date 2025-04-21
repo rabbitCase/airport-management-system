@@ -12,35 +12,48 @@
 			<h2>Staff Registration</h2>
 			<form>
 				<p>
-					<input
-						type="text"
-						id="name"
-						placeholder="Name"
-						required />
+					<input type="text" id="name" placeholder="Name" required />
 				</p>
 				<p>
 					<input
-						type="text"
+						type="number"
 						id="staffid"
 						placeholder="Staff ID"
+						min="1"
 						required />
 				</p>
 				<p>
 					<input
-						type="text"
+						type="number"
 						id="airportid"
 						placeholder="Airport ID"
+						min="1"
+						required />
+				</p>
+				<p>
+					<input type="text" id="role" placeholder="Role" required />
+				</p>
+				<p>
+					<input
+						type="password"
+						id="password"
+						placeholder="Password"
 						required />
 				</p>
 				<p>
 					<input
-						type="text"
-						id="role"
-						placeholder="Role"
+						type="password"
+						id="password1"
+						placeholder="Confirm Password"
 						required />
 				</p>
 				<div class="button-container">
-					<a href="http://localhost:3000/login/" target="_blank" style="font-size: 15px ;">Login instead</a>
+					<a
+						href="http://localhost:3000/login/"
+						target="_blank"
+						style="font-size: 15px"
+						>Login instead</a
+					>
 					<button id="submit-button">Submit</button>
 				</div>
 			</form>

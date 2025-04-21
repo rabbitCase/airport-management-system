@@ -1,6 +1,4 @@
 require("dotenv").config();
-const registeredstaff = require("./registeredStaff.js");
-const allowedstaff = require("./allowedStaff.js");
 
 const cors = require("cors");
 const path = require("path");
@@ -117,79 +115,176 @@ app.post("/register", (req, res) => {
 	let staffid = req.body.staffid;
 	let airportid = req.body.airportid;
 	let role = req.body.role;
+	let password = req.body.password;
 
-	const queryStaff = `insert into staff values(${staffid}, ${airportid}, '${staffname}')`;
+	const queryStaff = `insert into staff values(${staffid}, ${airportid}, '${staffname}', '${password}')`;
 	const queryRole = `insert into staff_role values(${staffid}, '${role}')`;
 	const queryWorksFor = `insert into works_for values(${staffid}, '${airportid}')`;
+	const queryCheckExistingStaff = "select staffid from staff";
 
-	if (!allowedstaff.mutableArrayObject.allowed.includes(Number(staffid))) {
-		return res.json({
-			message: "not allowed",
-			details:
-				"user is not employed by the airport and/or the employment status is not updated in the database",
-		});
-	}
+	// if (!allowedstaff.mutableArrayObject.allowed.includes(Number(staffid))) {
+	// 	return res.json({
+	// 		message: "not allowed",
+	// 		details:
+	// 			"user is not employed by the airport and/or the employment status is not updated in the database",
+	// 	});
+	// }
 
-	registeredstaff.mutableArrayObject.registered.push(Number(staffid)); //add the registered staff to the registered array
+	// registeredstaff.mutableArrayObject.registered.push(Number(staffid)); //add the registered staff to the registered array
 
-	console.log(
-		"Updated registered staff: ",
-		registeredstaff.mutableArrayObject.registered
-	);
+	// console.log(
+	// 	"Updated registered staff: ",
+	// 	registeredstaff.mutableArrayObject.registered
+	// );
 
-	allowedstaff.mutableArrayObject.allowed =
-		allowedstaff.mutableArrayObject.allowed.filter(
-			(value) => value != Number(staffid)
-		); //remove this staff from the allowed array
+	// allowedstaff.mutableArrayObject.allowed =
+	// 	allowedstaff.mutableArrayObject.allowed.filter(
+	// 		(value) => value != Number(staffid)
+	// 	); //remove this staff from the allowed array
 
-	console.log(
-		"Updated allowed staff: ",
-		allowedstaff.mutableArrayObject.allowed
-	);
+	// console.log(
+	// 	"Updated allowed staff: ",
+	// 	allowedstaff.mutableArrayObject.allowed
+	// );
 
-	dbConnection.query(queryStaff, (err) => {
+	// let staffAlreadyRegistered = false;
+
+	// const thenable = {
+	// 	then: function (resolve, reject) {
+	// 		dbConnection.query(queryCheckExistingStaff, (err, result) => {
+	// 			if (err) {
+	// 				console.log("Existing staff check query error:", err);
+	// 				return res.json({ error: "Query failed", details: err });
+	// 			}
+	// 			const existingStaff = JSON.parse(JSON.stringify(result)).map(
+	// 				(item) => item.staffid
+	// 			);
+	// 			if (existingStaff.includes(Number(staffid))) {
+	// 				staffAlreadyRegistered = true;
+	// 				console.log("Staff already registered");
+	// 			}
+	// 			if (staffAlreadyRegistered) {
+	// 				return res.json({
+	// 					message: "not allowed",
+	// 					details: "staffid is already in database",
+	// 				});
+	// 			} else {
+	// 				resolve("Staff not in database!");
+	// 			}
+	// 		});
+	// 	},
+	// };
+
+	// Promise.resolve(thenable).then(() => {
+	// 	dbConnection.query(queryStaff, (err) => {
+	// 		if (err) {
+	// 			console.log("Staff table query error:", err);
+	// 			return res.json({ error: "Query failed", details: err });
+	// 		}
+
+	// 		dbConnection.query(queryRole, (err) => {
+	// 			if (err) {
+	// 				console.log("Staff_role table query error:", err);
+	// 				return res.json({ error: "Query failed", details: err });
+	// 			}
+
+	// 			dbConnection.query(queryWorksFor, (err) => {
+	// 				if (err) {
+	// 					console.log("Works_for table query error:", err);
+	// 					return res.json({ error: "Query failed", details: err });
+	// 				}
+	// 				res.json({ message: "queries executed" });
+	// 			});
+	// 		});
+	// 	});
+	// });
+
+	dbConnection.query(queryCheckExistingStaff, (err, result) => {
 		if (err) {
-			console.log("Query error:", err);
+			console.log("Existing staff check query error:", err);
 			return res.json({ error: "Query failed", details: err });
 		}
-
-		dbConnection.query(queryRole, (err) => {
-			if (err) {
-				console.log("Query error:", err);
-				return res.json({ error: "Query failed", details: err });
-			}
-
-			dbConnection.query(queryWorksFor, (err) => {
+		const existingStaff = JSON.parse(JSON.stringify(result)).map(
+			(item) => item.staffid
+		);
+		if (existingStaff.includes(Number(staffid))) {
+			console.log("Staff already registered");
+			return res.json({
+				message: "not allowed",
+				details: "staffid is already in database",
+			});
+		} else {
+			dbConnection.query(queryStaff, (err) => {
 				if (err) {
-					console.log("Query error:", err);
+					console.log("Staff table query error:", err);
 					return res.json({ error: "Query failed", details: err });
 				}
-				res.json({ message: "queries executed" });
+
+				dbConnection.query(queryRole, (err) => {
+					if (err) {
+						console.log("Staff_role table query error:", err);
+						return res.json({ error: "Query failed", details: err });
+					}
+
+					dbConnection.query(queryWorksFor, (err) => {
+						if (err) {
+							console.log("Works_for table query error:", err);
+							return res.json({ error: "Query failed", details: err });
+						}
+						res.json({ message: "queries executed" });
+					});
+				});
 			});
-		});
+		}
 	});
 });
 
 app.post("/login", (req, res) => {
 	loginName = "";
-	const query = `select name from staff where staffid = ${req.body.staffid}`;
-	dbConnection.query(query, (err, result) => {
+	const staffid = req.body.staffid;
+	const password = req.body.password;
+	const loginQuery = `select name from staff where staffid = ${staffid} and password = '${password}'`;
+	const queryCheckExistingStaff = "select staffid from staff";
+	let staffHasRegistered = false;
+	dbConnection.query(queryCheckExistingStaff, (err, result) => {
 		if (err) {
-			console.log("Query error:", err);
+			console.log("Existing staff check query error:", err);
 			return res.json({ error: "Query failed", details: err });
 		}
-		loginName = result;
+		const existingStaff = JSON.parse(JSON.stringify(result)).map(
+			(item) => item.staffid
+		);
+		if (existingStaff.includes(Number(staffid))) {
+			dbConnection.query(loginQuery, (err, result) => {
+				if (err) {
+					console.log("Query error:", err);
+					return res.json({ error: "Query failed", details: err });
+				}
+				loginName = result;
+				if (result.length === 0) {
+					return res.json({
+						message: "not authorized",
+						details: "wrong password",
+					});
+				}
+			});
+		} else {
+			return res.json({
+				message: "not allowed",
+				details: "staffid is not in database",
+			});
+		}
 	});
 
-	if (
-		registeredstaff.mutableArrayObject.registered.includes(
-			Number(req.body.staffid)
-		)
-	) {
-		res.send({ message: "authenticated" });
-	} else {
-		res.send({ message: "not allowed" });
-	}
+	// if (
+	// 	registeredstaff.mutableArrayObject.registered.includes(
+	// 		Number(req.body.staffid)
+	// 	)
+	// ) {
+	// 	res.send({ message: "authenticated" });
+	// } else {
+	// 	res.send({ message: "not allowed" });
+	// }
 });
 
 app.get("/getname", (req, res) => {
