@@ -31,6 +31,7 @@ CREATE TABLE Staff (
     StaffID INT,
     AirportID INT,
     Name VARCHAR(200),
+    Password VARCHAR(25),
     PRIMARY KEY (StaffID),
     FOREIGN KEY (AirportID) REFERENCES Airport(AirportID)
 );
@@ -115,14 +116,14 @@ CREATE TABLE Flight_Gate (
     FOREIGN KEY (GateID) REFERENCES Gate(GateID)
 );
 
--- USED AI for sample DATA
+-- Sample DATA
 
 INSERT INTO Airport (AirportID, Name, Location, Terminals) VALUES
-(1, 'Chhatrapati Shivaji Maharaj International Airport', 'Mumbai, Maharashtra', 2),
-(2, 'Indira Gandhi International Airport', 'Delhi, Delhi', 3),
-(3, 'Kempegowda International Airport', 'Bengaluru, Karnataka', 1),
-(4, 'Netaji Subhas Chandra Bose International Airport', 'Kolkata, West Bengal', 2),
-(5, 'Rajiv Gandhi International Airport', 'Hyderabad, Telangana', 1);
+(1, 'Chhatrapati Shivaji Maharaj International Airport', 'Mumbai', 2),
+(2, 'Indira Gandhi International Airport', 'Delhi', 3),
+(3, 'Kempegowda International Airport', 'Bengaluru', 1),
+(4, 'Netaji Subhas Chandra Bose International Airport', 'Kolkata', 2),
+(5, 'Rajiv Gandhi International Airport', 'Hyderabad', 1);
 
 INSERT INTO Airline (AirlineID, Name, Code) VALUES
 (1, 'Air India', 'AI'),
@@ -138,12 +139,12 @@ INSERT INTO Passenger (PassengerID, Name, DOB, PhoneNumber) VALUES
 (4, 'Sneha Gupta', '1988-11-30', 6543210987),
 (5, 'Vikram Singh', '1992-07-25', 5432109876);
 
-INSERT INTO Staff (StaffID, AirportID, Name) VALUES
-(1, 1, 'Suresh Yadav'),
-(2, 2, 'Anjali Mehra'),
-(3, 3, 'Rakesh Nair'),
-(4, 4, 'Pooja Desai'),
-(5, 5, 'Kiran Reddy');
+INSERT INTO Staff (StaffID, AirportID, Name, Password) VALUES
+(1, 1, 'Suresh Yadav', 'security123!'),
+(2, 2, 'Anjali Mehra', '!apassword5'),
+(3, 3, 'Rakesh Nair', 'easypassword'),
+(4, 4, 'Pooja Desai', 'randomword'),
+(5, 5, 'Kiran Reddy', 'helloworld');
 
 INSERT INTO Gate (GateID, AirportID, Status, Terminal) VALUES
 (1, 1, 'Available', 1),
@@ -153,11 +154,11 @@ INSERT INTO Gate (GateID, AirportID, Status, Terminal) VALUES
 (5, 5, 'Available', 1);
 
 INSERT INTO Baggage (PassengerID, BaggageTag, Weight, DepartureAirport, ArrivalAirport) VALUES
-(1, 'BAG001', 20.50, 'Mumbai, Maharashtra', 'Delhi, Delhi'),
-(2, 'BAG002', 15.75, 'Delhi, Delhi', 'Bengaluru, Karnataka'),
-(3, 'BAG003', 22.00, 'Bengaluru, Karnataka', 'Kolkata, West Bengal'),
-(4, 'BAG004', 18.25, 'Kolkata, West Bengal', 'Hyderabad, Telangana'),
-(5, 'BAG005', 19.80, 'Hyderabad, Telangana', 'Mumbai, Maharashtra');
+(1, 'BAG001', 20.50, 'Mumbai', 'Delhi'),
+(2, 'BAG002', 15.75, 'Delhi', 'Bengaluru'),
+(3, 'BAG003', 22.00, 'Bengaluru', 'Kolkata'),
+(4, 'BAG004', 18.25, 'Kolkata', 'Hyderabad'),
+(5, 'BAG005', 19.80, 'Hyderabad', 'Mumbai');
 
 INSERT INTO LostAndFound (ItemID, AirportID, DateFound, Description) VALUES
 (1, 1, '2025-04-01', 'Black leather wallet with ID cards'),
