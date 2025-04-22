@@ -1,16 +1,24 @@
-# dbms-sem4-ams
-Reference airline/airport code and their values ("id" : "value")
+# Aiport Management System
 
-Airline:
-1: Air India 
-2: IndiGo 
-3: SpiceJet 
-4: Vistara 
-5: GoAir 
+Database design/architecture, Entity-Relationship models: Suvan Kumar Shee <a href="http://github.com/skshee/">(skshee)</a>
 
-Airport:
-1: Mumbai, Maharashtra
-2: Delhi, Delhi
-3: Bengaluru, Karnataka
-4: Kolkata, West Bengal
-5: Hyderabad, Telangana
+Login authentication logic, UI design/styling, bug fixes: Armaan Gupta <a href="http://github.com/poseidon-boi/">(poseidon-boi)</a>
+
+Server design, API connections and UI design/styling: Gokul Nair <a href="http://github.com/rabbitCase/">(rabbitCase)</a>
+
+<h2>Project Functionalities</h2>
+<ul>
+  <li>Staff Login/Registration</li>
+  <li>Baggage Check-in</li>
+  <li>Lost and Found</li>
+  <li>Flight Delay Update</li>
+  <li>Flight Tracker for Passengers</li>
+</ul>
+
+<h2>Technologies Used</h2>
+<ul>
+  <li>Database: MySQL</li>
+  <li>UI Design: HTML, CSS</li>
+  <li>Frontend and Backend Functionality: JavaScript(Node.js and Express.js)</li>
+  <li>Version Control: Git and Github</li>
+</ul>
