@@ -1,7 +1,5 @@
 CREATE DATABASE Airport_DB;
 
-SHOW DATABASES;
-
 USE Airport_DB;
 
 CREATE TABLE Airport (
