@@ -6,6 +6,8 @@ Login authentication logic, UI design/styling, bug fixes: Armaan Gupta <a href="
 
 Server design, API connections and UI design/styling: Gokul Nair <a href="http://github.com/rabbitCase/">(rabbitCase)</a>
 
+<a href="https://github.com/rabbitCase/dbms-sem4-ams/blob/main/frontend/README.md">Additional Credits</a>
+
 <h2>Project Functionalities</h2>
 <ul>
   <li>Staff Login/Registration</li>
@@ -22,3 +24,4 @@ Server design, API connections and UI design/styling: Gokul Nair <a href="http:/
   <li>Frontend and Backend Functionality: JavaScript(Node.js and Express.js)</li>
   <li>Version Control: Git and Github</li>
 </ul>
+
