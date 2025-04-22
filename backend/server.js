@@ -26,17 +26,32 @@ const dbConnection = sql.createConnection({
 	connectionLimit: 20,
 });
 
+let loggedIn = false;
+
 app.use(express.text());
 app.use(express.json());
 app.use(cors());
 
-app.use("/baggage", checkinrouter);
-app.use("/delay", delayrouter);
-app.use("/lostandfound", lfrouter);
+function requireLogin(req, res, next) {
+	if (loggedIn) {
+		return next();
+	} else {
+		try {
+			res.redirect("/login");
+		} catch (err) {
+			console.error("ERROR: ", err);
+			res.status(500).send("Error encoutnered");
+		}
+	}
+}
+
+app.use("/baggage", requireLogin, checkinrouter);
+app.use("/delay", requireLogin, delayrouter);
+app.use("/lostandfound", requireLogin, lfrouter);
 app.use("/register", staffregistrationrouter);
 app.use("/welcome", welcomerouter);
 app.use("/login", staffloginrouter);
-app.use("/logged-in", loggedinrouter);
+app.use("/logged-in", requireLogin, loggedinrouter);
 
 let loginName = "";
 
@@ -243,6 +258,7 @@ app.post("/login", (req, res) => {
 	loginName = "";
 	const staffid = req.body.staffid;
 	const password = req.body.password;
+	console.log(password);
 	const loginQuery = `select name from staff where staffid = ${staffid} and password = '${password}'`;
 	const queryCheckExistingStaff = "select staffid from staff";
 	let staffHasRegistered = false;
@@ -255,16 +271,22 @@ app.post("/login", (req, res) => {
 			(item) => item.staffid
 		);
 		if (existingStaff.includes(Number(staffid))) {
-			dbConnection.query(loginQuery, (err, result) => {
+			dbConnection.query(loginQuery, (err, innerResult) => {
 				if (err) {
 					console.log("Query error:", err);
 					return res.json({ error: "Query failed", details: err });
 				}
-				loginName = result;
-				if (result.length === 0) {
+				loginName = innerResult;
+				if (innerResult.length === 0) {
+					console.log(innerResult);
 					return res.json({
 						message: "not authorized",
 						details: "wrong password",
+					});
+				} else {
+					loggedIn = true;
+					return res.json({
+						message: "authenticated",
 					});
 				}
 			});

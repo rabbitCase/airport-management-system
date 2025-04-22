@@ -16,8 +16,10 @@ button.addEventListener("click", async (event) => {
 				for: "staff login",
 				parameter1: "staffid",
 				parameter2: "name",
+				parameter3: "password",
 				staffid: `${staffid.value}`,
 				name: `${staffname.value}`,
+				password: `${password.value}`,
 			}),
 		});
 		const response = await request.json();
