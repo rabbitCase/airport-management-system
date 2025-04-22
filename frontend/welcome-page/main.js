@@ -114,7 +114,7 @@ button.addEventListener("click", async () => {
 			deptime.appendChild(depHeader);
 
 			const depTime = document.createElement("div"); //time of departure
-			depTime.textContent = `${key.DepartureTime}`;
+			depTime.textContent = `${key.DepartTime}`;
 			deptime.appendChild(depTime);
 
 			const arrtime = document.createElement("div"); //for departure time
@@ -127,7 +127,7 @@ button.addEventListener("click", async () => {
 			arrtime.appendChild(arrHeader);
 
 			const arrTime = document.createElement("div"); //time of departure
-			arrTime.textContent = `${key.ArrivalTime}`;
+			arrTime.textContent = `${key.ArriveTime}`;
 			arrtime.appendChild(arrTime);
 		});
 		window.scrollBy({ top: 450, behavior: "smooth" });
