@@ -61,7 +61,7 @@ app.get("/", (req, res) => {
 });
 
 app.post("/welcome", (req, res) => {
-	let query = `select AirlineID, DepartureAirportID, ArrivalAirportID, TIME(DepartureTime) as DepartureTime from flight where DepartureAirportID = ${req.body.depairport} and ArrivalAirportID = ${req.body.arrairport} and DATE(DepartureTime) = '${req.body.tripdate}'`;
+	let query = `select AirlineID, DepartureAirportID, ArrivalAirportID, TIME(DepartureTime) as DepartureTime, TIME(ArrivalTime) as ArrivalTime from flight where DepartureAirportID = ${req.body.depairport} and ArrivalAirportID = ${req.body.arrairport} and DATE(DepartureTime) = '${req.body.tripdate}'`;
 
 	dbConnection.query(query, (err, result) => {
 		if (err) {

@@ -155,6 +155,7 @@ h1 {
 	will-change: transform;
 	background-color: rgb(255, 255, 255);
 	transition: transform 0.3s ease;
+	padding: 1rem;
 }
 .card:hover {
 	transform: scale(1.02);
