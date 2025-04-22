@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Login</title>
+		<title>Check-in Baggage</title>
 		<link rel="stylesheet" href="./style.css" />
 		<script src="main.js" defer></script>
 	</head>
@@ -35,59 +35,59 @@
 						<label id="comment">Enter baggage details</label>
 
 						<div class="container-group" id="name-container">
-							<div class="input-fields" id="firstname-container">
-								<label for="firstname" id="first-name">Passenger ID</label>
+							<div class="input-fields" id="passenger-container">
+								<label for="passengerid" id="passenger-id">Passenger ID</label>
 								<input
 									type="text"
-									name="firstname"
-									id="firstname"
+									name="passengerid"
+									id="passengerid"
 									placeholder="1"
 									required />
 							</div>
 
-							<div class="input-fields" id="lastname-container">
-								<label for="lastname" id="last-name">Baggage Tag</label>
+							<div class="input-fields" id="baggagetag-container">
+								<label for="baggagetag" id="baggage-tag">Baggage Tag</label>
 								<input
 									type="text"
-									name="lastname"
-									id="lastname"
-									placeholder="BAG00X"
+									name="baggagetag"
+									id="baggagetag"
+									placeholder="BAGXXX"
 									required />
 							</div>
 						</div>
 
 						<div class="container-group" id="contact-container">
-							<div class="input-fields" id="email-container">
-								<label for="email" id="emailid">Weight</label>
+							<div class="input-fields" id="weight-container">
+								<label for="weight" id="weight-label">Weight</label>
 								<input
-									type="text"
-									name="email"
-									id="email"
+									type="number"
+									name="weight"
+									id="weight"
 									placeholder="25.75"
 									required />
 							</div>
-
-							<div class="input-fields" id="phone-container"></div>
 						</div>
 
 						<div class="container-group" id="password-validation-container">
-							<div class="input-fields" id="pass-container">
-								<label for="pass" id="password">Departure Airport</label>
+							<div class="input-fields" id="dept-air-container">
+								<label for="dept-air" id="dept-air-label"
+									>Departure Airport</label
+								>
 								<input
 									type="text"
-									name="pass"
-									id="pass"
-									placeholder="Kolkata, West Bengal"
+									name="dept-air"
+									id="dept-air"
+									placeholder="Kolkata"
 									required />
 							</div>
 
-							<div class="input-fields" id="cpass-container">
-								<label for="cpass" id="confirm-pass">Arrival Airport</label>
+							<div class="input-fields" id="arr-air-container">
+								<label for="arr-air" id="arr-air-label">Arrival Airport</label>
 								<input
 									type="text"
-									name="cpass"
-									id="cpass"
-									placeholder="Mumbai, Maharashtra"
+									name="arr-air"
+									id="arr-air"
+									placeholder="Mumbai"
 									required />
 							</div>
 						</div>

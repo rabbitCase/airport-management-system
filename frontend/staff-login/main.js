@@ -1,8 +1,17 @@
 const button = document.getElementById("button");
 const staffid = document.getElementById("staffid");
 const staffname = document.getElementById("name");
+const password = document.getElementById("password");
 
 button.addEventListener("click", async (event) => {
+	if (
+		staffid.value.length === 0 ||
+		staffname.value.length === 0 ||
+		password.value.length === 0
+	) {
+		alert("Please enter all fields");
+		return;
+	}
 	try {
 		event.preventDefault();
 		const request = await fetch("http://localhost:3000/login", {
@@ -29,7 +38,7 @@ button.addEventListener("click", async (event) => {
 		} else if (response.message === "not allowed") {
 			alert("Invalid Staff ID.");
 		} else if (response.message === "not authorized") {
-			alert("Invalid password.");
+			alert("Invalid credentials.");
 		}
 	} catch (error) {
 		console.log(error);

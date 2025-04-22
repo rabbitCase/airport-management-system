@@ -258,8 +258,9 @@ app.post("/login", (req, res) => {
 	loginName = "";
 	const staffid = req.body.staffid;
 	const password = req.body.password;
+	const staffname = req.body.name;
 	console.log(password);
-	const loginQuery = `select name from staff where staffid = ${staffid} and password = '${password}'`;
+	const loginQuery = `select name from staff where staffid = ${staffid} and password = '${password}' and name = '${staffname}'`;
 	const queryCheckExistingStaff = "select staffid from staff";
 	let staffHasRegistered = false;
 	dbConnection.query(queryCheckExistingStaff, (err, result) => {
@@ -281,7 +282,7 @@ app.post("/login", (req, res) => {
 					console.log(innerResult);
 					return res.json({
 						message: "not authorized",
-						details: "wrong password",
+						details: "invalid credentials",
 					});
 				} else {
 					loggedIn = true;
