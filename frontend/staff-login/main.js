@@ -1,14 +1,9 @@
 const button = document.getElementById("button");
 const staffid = document.getElementById("staffid");
-const staffname = document.getElementById("name");
 const password = document.getElementById("password");
 
 button.addEventListener("click", async (event) => {
-	if (
-		staffid.value.length === 0 ||
-		staffname.value.length === 0 ||
-		password.value.length === 0
-	) {
+	if (staffid.value.length === 0 || password.value.length === 0){
 		alert("Please enter all fields");
 		return;
 	}
@@ -24,10 +19,8 @@ button.addEventListener("click", async (event) => {
 				type: "authentication request",
 				for: "staff login",
 				parameter1: "staffid",
-				parameter2: "name",
-				parameter3: "password",
+				parameter2: "password",
 				staffid: `${staffid.value}`,
-				name: `${staffname.value}`,
 				password: `${password.value}`,
 			}),
 		});
