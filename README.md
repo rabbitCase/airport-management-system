@@ -41,7 +41,13 @@ Server design, API connections and UI design/styling: Gokul Nair <a href="http:/
   <li>
     Change to backend folder
     <ul>
-      <li><code> cd backend</code></li>
+      <li><code> cd airport-management-system/backend</code></li>
+    </ul>
+  </li>
+  <li>
+    Install dependencies
+    <ul>
+      <li><code>npm install</code></li>
     </ul>
   </li>
   <li>
