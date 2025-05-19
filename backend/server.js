@@ -179,7 +179,6 @@ app.post("/login", (req, res) => {
 	loginName = "";
 	const staffid = req.body.staffid;
 	const password = req.body.password;
-	const staffname = req.body.name;
 	console.log(password);
 	const loginQuery = `select name from staff where staffid = ${staffid} and password = '${password}'`;
 	const queryCheckExistingStaff = "select staffid from staff";
