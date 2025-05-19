@@ -19,7 +19,7 @@ const dbConnection = sql.createConnection({
 	host: "localhost",
 	user: "root",
 	password: process.env.DB_PASSWORD,
-	database: "airport_db_new",
+	database: "airport_db",
 	connectionLimit: 20,
 });
 
