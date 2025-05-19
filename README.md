@@ -31,7 +31,7 @@ Server design, API connections and UI design/styling: Gokul Nair <a href="http:/
     <ul>
       <li>Go to <a href="https://github.com/rabbitCase/airport-management-system/blob/main/Commands.txt">Commands.txt</a></li>
       <li>Copy all SQL statements</li>
-      <li>Paste into your MySQL Client</li>
+      <li>Paste into your MySQL Client (press 'enter' to execute the last command)</li>
       <li>You should now have the database created with sample values for all tables</li>
     </ul>
   </li>
