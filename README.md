@@ -37,9 +37,12 @@ Server design, API connections and UI design/styling: Gokul Nair <a href="http:/
   </li>
   <li>
     Clone the repository to your local machine
+    <ul>
+      <li><code> git clone https://github.com/rabbitCase/airport-management-system.git </code></li>
+    </ul
   </li>
   <li>
-    Change to backend folder
+    Change to the backend folder
     <ul>
       <li><code> cd airport-management-system/backend</code></li>
     </ul>
@@ -51,9 +54,10 @@ Server design, API connections and UI design/styling: Gokul Nair <a href="http:/
     </ul>
   </li>
   <li>
-    Go to server.js
+    In the backend folder, go to the server.js file
     <ul>
-      <li>Change the 'password' field (line 21) with your MySQL client password</li>
+      <li>Change 'process.env.DB_PASSWORD' in the 'password' field (line 21) to your MySQL client password (within <code>''</code>)</li>
+      <li><code>password : 'your_password'</code></li>
     </ul>
   </li>
   <li>
