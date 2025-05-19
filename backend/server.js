@@ -10,10 +10,7 @@ const port = 3000;
 const delayrouter = require(path.join(__dirname, "routes/delayroute"));
 const checkinrouter = require(path.join(__dirname, "routes/checkinroute"));
 const lfrouter = require(path.join(__dirname, "routes/lostnfoundroute"));
-const staffregistrationrouter = require(path.join(
-	__dirname,
-	"routes/regroute"
-));
+const staffregistrationrouter = require(path.join(__dirname,"routes/regroute"));
 const welcomerouter = require(path.join(__dirname, "routes/welcomeroute"));
 const staffloginrouter = require(path.join(__dirname, "routes/loginroute"));
 const loggedinrouter = require(path.join(__dirname, "routes/loggedinroute"));
@@ -22,7 +19,7 @@ const dbConnection = sql.createConnection({
 	host: "localhost",
 	user: "root",
 	password: process.env.DB_PASSWORD,
-	database: "airport_db",
+	database: "airport_db_new",
 	connectionLimit: 20,
 });
 
@@ -40,7 +37,7 @@ function requireLogin(req, res, next) {
 			res.redirect("/login");
 		} catch (err) {
 			console.error("ERROR: ", err);
-			res.status(500).send("Error encoutnered");
+			res.status(500).send("Error encountered");
 		}
 	}
 }
@@ -137,83 +134,6 @@ app.post("/register", (req, res) => {
 	const queryWorksFor = `insert into works_for values(${staffid}, '${airportid}')`;
 	const queryCheckExistingStaff = "select staffid from staff";
 
-	// if (!allowedstaff.mutableArrayObject.allowed.includes(Number(staffid))) {
-	// 	return res.json({
-	// 		message: "not allowed",
-	// 		details:
-	// 			"user is not employed by the airport and/or the employment status is not updated in the database",
-	// 	});
-	// }
-
-	// registeredstaff.mutableArrayObject.registered.push(Number(staffid)); //add the registered staff to the registered array
-
-	// console.log(
-	// 	"Updated registered staff: ",
-	// 	registeredstaff.mutableArrayObject.registered
-	// );
-
-	// allowedstaff.mutableArrayObject.allowed =
-	// 	allowedstaff.mutableArrayObject.allowed.filter(
-	// 		(value) => value != Number(staffid)
-	// 	); //remove this staff from the allowed array
-
-	// console.log(
-	// 	"Updated allowed staff: ",
-	// 	allowedstaff.mutableArrayObject.allowed
-	// );
-
-	// let staffAlreadyRegistered = false;
-
-	// const thenable = {
-	// 	then: function (resolve, reject) {
-	// 		dbConnection.query(queryCheckExistingStaff, (err, result) => {
-	// 			if (err) {
-	// 				console.log("Existing staff check query error:", err);
-	// 				return res.json({ error: "Query failed", details: err });
-	// 			}
-	// 			const existingStaff = JSON.parse(JSON.stringify(result)).map(
-	// 				(item) => item.staffid
-	// 			);
-	// 			if (existingStaff.includes(Number(staffid))) {
-	// 				staffAlreadyRegistered = true;
-	// 				console.log("Staff already registered");
-	// 			}
-	// 			if (staffAlreadyRegistered) {
-	// 				return res.json({
-	// 					message: "not allowed",
-	// 					details: "staffid is already in database",
-	// 				});
-	// 			} else {
-	// 				resolve("Staff not in database!");
-	// 			}
-	// 		});
-	// 	},
-	// };
-
-	// Promise.resolve(thenable).then(() => {
-	// 	dbConnection.query(queryStaff, (err) => {
-	// 		if (err) {
-	// 			console.log("Staff table query error:", err);
-	// 			return res.json({ error: "Query failed", details: err });
-	// 		}
-
-	// 		dbConnection.query(queryRole, (err) => {
-	// 			if (err) {
-	// 				console.log("Staff_role table query error:", err);
-	// 				return res.json({ error: "Query failed", details: err });
-	// 			}
-
-	// 			dbConnection.query(queryWorksFor, (err) => {
-	// 				if (err) {
-	// 					console.log("Works_for table query error:", err);
-	// 					return res.json({ error: "Query failed", details: err });
-	// 				}
-	// 				res.json({ message: "queries executed" });
-	// 			});
-	// 		});
-	// 	});
-	// });
-
 	dbConnection.query(queryCheckExistingStaff, (err, result) => {
 		if (err) {
 			console.log("Existing staff check query error:", err);
@@ -228,7 +148,8 @@ app.post("/register", (req, res) => {
 				message: "not allowed",
 				details: "staffid is already in database",
 			});
-		} else {
+		} 
+		else {
 			dbConnection.query(queryStaff, (err) => {
 				if (err) {
 					console.log("Staff table query error:", err);
@@ -260,9 +181,8 @@ app.post("/login", (req, res) => {
 	const password = req.body.password;
 	const staffname = req.body.name;
 	console.log(password);
-	const loginQuery = `select name from staff where staffid = ${staffid} and password = '${password}' and name = '${staffname}'`;
+	const loginQuery = `select name from staff where staffid = ${staffid} and password = '${password}'`;
 	const queryCheckExistingStaff = "select staffid from staff";
-	let staffHasRegistered = false;
 	dbConnection.query(queryCheckExistingStaff, (err, result) => {
 		if (err) {
 			console.log("Existing staff check query error:", err);
@@ -284,30 +204,22 @@ app.post("/login", (req, res) => {
 						message: "not authorized",
 						details: "invalid credentials",
 					});
-				} else {
+				} 
+				else {
 					loggedIn = true;
 					return res.json({
 						message: "authenticated",
 					});
 				}
 			});
-		} else {
+		} 
+		else {
 			return res.json({
 				message: "not allowed",
 				details: "staffid is not in database",
 			});
 		}
 	});
-
-	// if (
-	// 	registeredstaff.mutableArrayObject.registered.includes(
-	// 		Number(req.body.staffid)
-	// 	)
-	// ) {
-	// 	res.send({ message: "authenticated" });
-	// } else {
-	// 	res.send({ message: "not allowed" });
-	// }
 });
 
 app.get("/getname", (req, res) => {
