@@ -18,7 +18,7 @@ const loggedinrouter = require(path.join(__dirname, "routes/loggedinroute"));
 const dbConnection = sql.createConnection({
 	host: "localhost",
 	user: "root",
-	password: process.env.DB_PASSWORD,
+	password: process.env.DB_PASSWORD,//replace with your MySQL password
 	database: "airport_db",
 	connectionLimit: 20,
 });
